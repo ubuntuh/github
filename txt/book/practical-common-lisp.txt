@@ -1,2 +1,12 @@
 Practical Common Lisp by Peter Seibel
 実践 Common Lisp
+
+that book is dead sexy -- Xach on #lisp
+Xach = ?
+blurb = 自賛, perpetuity =  永続, dead-tree = 紙の
+treeware = 紙の
+1. Introduction: Why Lisp?
+anecdotal = 逸話の, doctoral dissertation = 博士論文, pharmaceutical = 製薬の, allot = 割り当てる, in the air = 噂が広まる
+My dad credits his team's success to their decision to use Lisp. 私のお父さんは、彼のチームが成功したのは彼らが Lisp を使うと決めたからだ、と思っていた。
+incorporate = 取り入れる, seduce = 誘い込む, exhilarating = 気分を浮き立たせる, rudimentary = 基本の
+Why Lisp?
