@@ -1,6 +1,13 @@
+# Java
 bin/
+# Java
 .classpath
+# Java
 .metadata
+# C
 *.out
+# Java
 .project
+# Java
 .settings/
+
