@@ -1,5 +1,6 @@
 # Markdown
 
+- [Book](book/index.md)
 - [ReText](retext.md)
 - [Sample](sample.md)
 
