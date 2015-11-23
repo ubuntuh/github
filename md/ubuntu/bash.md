@@ -6,7 +6,7 @@
 #### .bash_aliases
 
 - terminal 起動時に自動的に実行してほしいコマンドは、~/.bash_aliases に書く。
-    - terminal は起動時に ~/.bashrc を読むが、これが ~/.bash_aliases を読み込んでくれる。可能なら .bashrc を改変するのではなく .bash_aliases を作って編集すべきことは。その ~/.bashrc に買いてある。
+    - terminal は起動時に ~/.bashrc を読むが、これが ~/.bash_aliases を読み込んでくれる。可能なら .bashrc を改変するのではなく .bash_aliases を作って編集すべきことは、その ~/.bashrc に買いてある。
 - 変数の定義は、`export example=~/example/example` などとする。使う時は $ をつけて `cd $example` などとする。
     - 変数名は大文字が推奨されているようだが小文字も使われているようである。
 - プロンプトの変更は `PS1='$ '` などとする。
