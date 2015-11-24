@@ -3,6 +3,7 @@
 - C++ 基礎講座 by M. T. Skinner
     - １９９４年２月１日初版
     - １９９５年８月２１日第１版第５刷
+- Learning the bash Shell by Cameron Newham, Bill Rosenblatt
 - LINUX 詳説 基礎編 by 井田昌之
     - ２００４年２月２０日
 - Linux 教科書 LPIC レベル 1 第３版
