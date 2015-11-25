@@ -1,4 +1,5 @@
 PS1='\[\033[91;1m\]\w\$\[\033[0m\] '
+
 export doc=~/Documents
 export dl=~/Downloads
 export pr=~/Programming
