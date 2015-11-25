@@ -19,3 +19,6 @@
 - p. 13 - However, it's important to be aware that the commands that you run only see the results of wildcard expansion.
 - p. 14 - `echo b{ed,olt,ar}s`
 - standard input, standard output, standard error (output)
+- p. 15 - a pipeline, in which the standard output of one program feeds directly into the standard input of another;
+- cat, grep, sort, cut, sed, tr
+- p. 16 - I/O redirection
