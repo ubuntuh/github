@@ -22,3 +22,5 @@
 - p. 15 - a pipeline, in which the standard output of one program feeds directly into the standard input of another;
 - cat, grep, sort, cut, sed, tr
 - p. 16 - I/O redirection
+- p. 18 - background jobs
+- p. 19 - `jobs`

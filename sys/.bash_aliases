@@ -1,22 +1,36 @@
-PS1='\[\033[91;1m\]\w\$\[\033[0m\] '
-
-export doc=~/Documents
-export dl=~/Downloads
-export pr=~/Programming
-export git=~/github
-
-export md=$git/md
-export src=$git/src
-export sys=$git/sys
-
-export oscar=$md/lib/oscar
-
-export bash=$src/bash
-export c=$src/c
-export cpp=$src/cpp
-export clj=$src/clojure
-export halloway=$clj/halloway
-
-export ejdic=$sys/ejdic-hand-utf8.txt
-export edict=$sys/edict
+# http://misc.flogisoft.com/bash/tip_colors_and_formatting
+PS1='\[\033[92;1m\]\w\$\[\033[0m\] '
+doc=~/Documents
+dl=~/Downloads
+pr=~/Programming
+git=~/github
+md=$git/md
+src=$git/src
+sys=$git/sys
+oscar=$md/lib/oscar
+bash=$src/bash
+c=$src/c
+cpp=$src/cpp
+clj=$src/clojure
+halloway=$clj/halloway
+ejdic=$sys/ejdic-hand-utf8.txt
+edict=$sys/edict
+function a() {
+    ./a.out
+}
+function ej() {
+    grep $1 $ejdic
+}
+function je() {
+    grep $1 $edict
+}
+function google() {
+    xdg-open "https://www.google.com/search?q=$1"
+}
+function wikipedia() {
+    xdg-open "https://en.wikipedia.org/wiki/$1"
+}
+function weblio() {
+    xdg-open "http://ejje.weblio.jp/content/$1"
+}
 
