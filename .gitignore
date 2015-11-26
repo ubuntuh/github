@@ -5,6 +5,8 @@ bin/
 # Java
 .metadata
 # C, etc.
+*.o
+# C, etc.
 *.out
 # Java
 .project

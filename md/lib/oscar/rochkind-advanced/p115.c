@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include <fcntl.h>
+#include "defs.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -11,6 +12,65 @@
 #include <grp.h>
 #include <time.h>
 
+static void mainloop(void);
+static void help(void);
+static void prompt(char *msg, char *result);
+static void status(char *path);
+static void dspstatus(struct stat *sbp);
+static void chtime(char *path, char which);
+static void chowner(char *path);
+static void chperms(char *path);
+static void syserrmsg(char *msg);
+
+int main() {
+    setbuf(stdout, NULL);
+    help();
+    mainloop();
+}
+static void mainloop() {
+    char path[50], cmd[10], shcmd[100];
+    while (1) {
+        prompt("Command", cmd);
+        if (strlen(cmd) > 1)
+            cmd[0] = '\1';
+        switch (cmd[0]) {
+        case '\0':
+        case 'q':
+            exit(0);
+        case 'a':
+        case 'm':
+            chtime(path, cmd[0]);
+            continue;
+        case 'f':
+            prompt("File", path);
+            if (access(path, 0) == -1) {
+                printf("%s nonexistent\n", path);
+                continue;
+            }
+            status(path);
+            continue;
+        case 'o':
+            chowner(path);
+            continue;
+        case 'p':
+            chperms(path);
+            continue;
+        case 's':
+            status(path);
+            continue;
+        case '!':
+            prompt("Shell command", shcmd);
+            system(shcmd);
+            continue;
+        case '?':
+            help();
+            continue;
+        default:
+            printf("Unknown command; use ? for help");
+            continue;
+        }
+    }
+}
 static void help() {
     printf("a  change access time\n");
     printf("f  new file name\n");
@@ -22,19 +82,23 @@ static void help() {
     printf("!  execute UNIX command\n");
     printf("?  display command summary\n");
 }
-static void syserrmsg(char *msg) {
-    extern int errno, sys_nerr;
-//    extern char *sys_errlist[];
+static void prompt(char *msg, char *result) {
+    printf("\n%s? ", msg);
+    if (gets(result) == NULL)
+        exit(0);
+}
+static void status(char *path) {
+    struct stat sb;
 
-    fprintf(stderr, "ERROR: %s (%d", msg, errno);
-    if (errno > 0 && errno < sys_nerr)
-        fprintf(stderr, "; %s)\n", sys_errlist[errno]);
-    else
-        fprintf(stderr, ")\n");
+    if (stat(path, &sb) == -1) {
+        syserrmsg("stat");
+        return;
+    }
+    printf("\nFile \"%s\"\n", path);
+    dspstatus(&sb);
 }
 static void dspstatus(struct stat *sbp) {
-//    BOOLEAN isdevice = FALSE;
-    int isdevice = 0;
+    BOOLEAN isdevice = FALSE;
     struct passwd *pw, *getpwuid();
     struct group *gr, *getgrgid();
     char *name, *asctime();
@@ -44,10 +108,10 @@ static void dspstatus(struct stat *sbp) {
         printf("Directory\n");
     else if ((sbp->st_mode & S_IFMT) == S_IFBLK) {
         printf("Block special file\n");
-        isdevice = 1;
+        isdevice = TRUE;
     } else if ((sbp->st_mode & S_IFMT) == S_IFCHR) {
         printf("Character special file\n");
-        isdevice = 1;
+        isdevice = TRUE;
     } else if ((sbp->st_mode & S_IFMT) == S_IFREG)
         printf("Ordinary file\n");
     else if ((sbp->st_mode & S_IFMT) == S_IFIFO)
@@ -76,21 +140,6 @@ static void dspstatus(struct stat *sbp) {
     printf("Last access:            %s", asctime(localtime(&sbp->st_atime)));
     printf("Last modification:      %s", asctime(localtime(&sbp->st_mtime)));
     printf("Last status change:     %s", asctime(localtime(&sbp->st_ctime)));
-}
-static void status(char *path) {
-    struct stat sb;
-
-    if (stat(path, &sb) == -1) {
-        syserrmsg("stat");
-        return;
-    }
-    printf("\nFile \"%s\"\n", path);
-    dspstatus(&sb);
-}
-static void prompt(char *msg, char *result) {
-    printf("\n%s? ", msg);
-    if (gets(result) == NULL)
-        exit(0);
 }
 static void chtime(char *path, char which) {
     char atime[20];
@@ -152,53 +201,14 @@ static void chperms(char *path) {
     if (chmod(path, mode) == -1)
         syserrmsg("chown");
 }
-static void mainloop() {
-    char path[50], cmd[10], shcmd[100];
-    while (1) {
-        prompt("Command", cmd);
-        if (strlen(cmd) > 1)
-            cmd[0] = '\1';
-        switch (cmd[0]) {
-        case '\0':
-        case 'q':
-            exit(0);
-        case 'a':
-        case 'm':
-            chtime(path, cmd[0]);
-            continue;
-        case 'f':
-            prompt("File", path);
-            if (access(path, 0) == -1) {
-                printf("%s nonexistent\n", path);
-                continue;
-            }
-            status(path);
-            continue;
-        case 'o':
-            chowner(path);
-            continue;
-        case 'p':
-            chperms(path);
-            continue;
-        case 's':
-            status(path);
-            continue;
-        case '!':
-            prompt("Shell command", shcmd);
-            system(shcmd);
-            continue;
-        case '?':
-            help();
-            continue;
-        default:
-            printf("Unknown command; use ? for help");
-            continue;
-        }
-    }
-}
-int main() {
-    setbuf(stdout, NULL);
-    help();
-    mainloop();
+static void syserrmsg(char *msg) {
+    extern int errno, sys_nerr;
+//    extern char *sys_errlist[];
+
+    fprintf(stderr, "ERROR: %s (%d", msg, errno);
+    if (errno > 0 && errno < sys_nerr)
+        fprintf(stderr, "; %s)\n", sys_errlist[errno]);
+    else
+        fprintf(stderr, ")\n");
 }
 

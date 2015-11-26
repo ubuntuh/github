@@ -1,3 +1,5 @@
+HISTSIZE=-1
+HISTFILESIZE=-1
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
 PS1='\[\033[92;1m\]\w\$\[\033[0m\] '
 doc=~/Documents
@@ -16,7 +18,7 @@ halloway=$clj/halloway
 ejdic=$sys/ejdic-hand-utf8.txt
 edict=$sys/edict
 function a() {
-    ./a.out
+    ./a.out "$@"
 }
 function ej() {
     grep $1 $ejdic
