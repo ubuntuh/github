@@ -1,0 +1,5 @@
+# Programming
+
+- 例えば C 言語で書いたプログラムを `gcc helloworld.c` などとコンパイルした際、`fatal error: example/example.h: No such file or directory` などというエラーが出てコンパイルできなかった場合には、ブラウザで [Ubuntu Packages Search](http://packages.ubuntu.com/) にアクセスして、"Search the contents of packages" のところでこの場合 "exmaple/example.h" を検索するとよい。すると、（もしあれば、）`sudo apt-get install ..." すべきパッケージが表示される。インストールすれば、先のプログラムがコンパイルできるようになる、ことがある。
+- apt-file というコマンドをインストールしてあれば、同じことをコマンドラインから行える。apt-file をインストールするには、`sudo apt-get update` してから `sudo apt-get install apt-file` とすればよい。`apt-file update` とすると、検索に必要な情報が（ローカルに）キャッシュされる。そのあと、`apt-file search example/example.h` とすれば、（もしあれば、）そのファイルが含まれるパッケージがわかる。なお、`apt-file update` は、`sudo apt-file update` でもよい。前者の場合、ユーザの領域にデータがキャッシュされ、後者では共有の領域にキャッシュされる。
+- コマンドラインから行えるのみならず、オフラインで行える点で、apt-file コマンドの方が優れている。しかしもちろん、不足しているパッケージが判明しても、オンラインでなければインストールはできないだろう。
