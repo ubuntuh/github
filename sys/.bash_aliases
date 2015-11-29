@@ -1,7 +1,8 @@
 HISTSIZE=-1
 HISTFILESIZE=-1
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
-PS1='\[\033[92;1m\]\w\$\[\033[0m\] '
+PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
+PS2='\[\e[92;1m\]>\[\e[0m\] '
 doc=~/Documents
 dl=~/Downloads
 pr=~/Programming
@@ -9,6 +10,7 @@ git=~/github
 md=$git/md
 src=$git/src
 sys=$git/sys
+info=$sys/info
 oscar=$md/lib/oscar
 bash=$src/bash
 c=$src/c
@@ -21,10 +23,10 @@ function a() {
     ./a.out "$@"
 }
 function ej() {
-    grep $1 $ejdic
+    grep "$1" $ejdic
 }
 function je() {
-    grep $1 $edict
+    grep "$1" $edict
 }
 function google() {
     xdg-open "https://www.google.com/search?q=$1"

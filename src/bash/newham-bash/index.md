@@ -24,3 +24,21 @@
 - p. 16 - I/O redirection
 - p. 18 - background jobs
 - p. 19 - `jobs`
+- p. 25 - Ctrl+M = Return
+- stty --all
+- Ctrl+? = Erase last character
+- p. 26 - Ctrl+H = Backspace
+- Ctrl+U = Erase characters before the caret
+- tty driver
+
+## 2. Command-Line Editing
+
+- p. 29 - two most popular UNIX editors,*vi* and *emacs*.
+- p. 58 - Ctrl+A = beginning of line
+- Ctrl+E = end of line
+- Ctrl+F = next character
+- Ctrl+B = previous character
+- Ctrl+P = previous history
+- Ctrl+N = next history
+- Tab = file name completion
+
