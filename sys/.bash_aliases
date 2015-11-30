@@ -1,10 +1,11 @@
 HISTSIZE=-1
 HISTFILESIZE=-1
+export MANPATH=~/github/sys/man:
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
 PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
 PS2='\[\e[92;1m\]>\[\e[0m\] '
 title='TITLE'
-PROMPT_COMMAND='echo -ne "\033]0;" $(date +%H:%M:%S) "\007"'
+PROMPT_COMMAND='echo -e "\e]0;" $(date +%H:%M:%S) "\a"'
      doc=~/Documents
       dl=~/Downloads
       pr=~/Programming
@@ -31,7 +32,10 @@ function je() {
     grep "$1" $edict
 }
 function google() {
-    xdg-open "https://www.google.com/search?q=$1"
+    xdg-open "https://www.google.com/search?q=$*"
+}
+function google-en() {
+    xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=$*"
 }
 function wikipedia() {
     xdg-open "https://en.wikipedia.org/wiki/$1"
