@@ -1,6 +1,8 @@
+# ~/.bash_aliases などから「. ~/github/sys/.bash_aliases」などとして呼び出すことができる。
 HISTSIZE=-1
 HISTFILESIZE=-1
-export MANPATH=~/github/sys/man:
+export MANPATH=$MANPATH:~/github/sys/man
+export INFOPATH=$INFOPATH:~/github/sys/info
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
 PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
 PS2='\[\e[92;1m\]>\[\e[0m\] '
@@ -36,6 +38,9 @@ function google() {
 }
 function google-en() {
     xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=$*"
+}
+function news() {
+    xdg-open "https://news.google.com/?ned=us"
 }
 function wikipedia() {
     xdg-open "https://en.wikipedia.org/wiki/$1"
