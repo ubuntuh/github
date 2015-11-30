@@ -6,7 +6,7 @@
 - Learning the bash Shell by Cameron Newham, Bill Rosenblatt
 - LINUX 詳説 基礎編 by 井田昌之
     - ２００４年２月２０日
-- Linux 教科書 LPIC レベル 1 第３版
+- [Linux 教科書 LPIC レベル 1 第３版](nakajima-lpic1-ed3.md) by 中島能和 (Yoshikazu Nakajima), 濱野賢一朗 (Kenichiro Hamano)
     - ２００７年１０月１８日初版第１刷
     - ２００８年１月１０日初版第２刷
 - MS-DOS ユーザーのための UNIX 実践教本 by 甲斐宗徳 (Munenori Kai), 高原利之 (Toshiyuki Takahara), 岡本秀輔 (Shusuke Okamoto)
