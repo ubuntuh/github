@@ -3,6 +3,8 @@ HISTFILESIZE=-1
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
 PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
 PS2='\[\e[92;1m\]>\[\e[0m\] '
+title='TITLE'
+PROMPT_COMMAND='echo -ne "\033]0;" $(date +%H:%M:%S) "\007"'
      doc=~/Documents
       dl=~/Downloads
       pr=~/Programming
