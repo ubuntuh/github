@@ -24,28 +24,28 @@ halloway=~/github/src/clojure/halloway
      sys=~/github/sys
    ejdic=~/github/sys/ejdic-hand-utf8.txt
    edict=~/github/sys/edict
-function a() {
+a() {
     ./a.out "$@"
 }
-function ej() {
+ej() {
     grep "$1" $ejdic
 }
-function je() {
+je() {
     grep "$1" $edict
 }
-function google() {
+google() {
     xdg-open "https://www.google.com/search?q=$*"
 }
-function google-en() {
+google-en() {
     xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=$*"
 }
-function news() {
+news() {
     xdg-open "https://news.google.com/?ned=us"
 }
-function wikipedia() {
+wikipedia() {
     xdg-open "https://en.wikipedia.org/wiki/$1"
 }
-function weblio() {
+weblio() {
     xdg-open "http://ejje.weblio.jp/content/$1"
 }
 
