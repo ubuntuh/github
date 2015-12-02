@@ -4,7 +4,7 @@
 
 - info コマンドには、デフォルトの検索ディレクトリがあるらしい。しかし、bash で echo $INFOPATH としても見られない。
 - http://unix.stackexchange.com/questions/22329/gnu-texinfo-directory-search-method
-- にて説明されているように、strings `which info` | grep /info とすれば見られる。
+- にて説明されているように、strings \`which info\` | grep /info とすれば見られる。
 - 私の環境では以下のようになっているようだ。
     - /usr/local/info
     - /usr/info
