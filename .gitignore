@@ -2,8 +2,6 @@
 bin/
 # Java
 .classpath
-# Texinfo
-*.info
 # Java
 .metadata
 # C, etc.
