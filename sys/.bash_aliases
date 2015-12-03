@@ -24,6 +24,14 @@ halloway=~/github/src/clojure/halloway
      sys=~/github/sys
    ejdic=~/github/sys/ejdic-hand-utf8.txt
    edict=~/github/sys/edict
+html() {
+    if [ $# -eq 0 ]
+    then
+        ls "$git/sys/html"
+    else
+        xdg-open "$git/sys/html/$1.html"
+    fi
+}
 a() {
     ./a.out "$@"
 }

@@ -3,6 +3,9 @@
 - C++ 基礎講座 by M. T. Skinner
     - １９９４年２月１日初版
     - １９９５年８月２１日第１版第５刷
+- Google を支える技術 by 西田圭介 (Keisuke Nishida)
+    - ２００８年４月２５日初版第１刷
+    - ２００８年７月２５日初版第５刷
 - Learning the bash Shell by Cameron Newham, Bill Rosenblatt
 - LINUX 詳説 基礎編 by 井田昌之
     - ２００４年２月２０日
@@ -27,6 +30,8 @@
 - 情報の論理数学入門 by 小倉久和 (Hisakazu Ogura), 高濱徹行 (Tetsuyuki Takahama) 
     - １９９１年４月２０日初版
     - ２０１２年８月３１日初版第２３刷
+- たのしい C by 柴田望洋 (Bouyou Shibata)
+    - ２００５年５月１８日初版
 - [データベース入門（新訂版） 基礎から応用まで](koikari-db.md) by 小碇暉雄 (Teruo Koikari)
     - １９８３年１１月２０日第１刷
     - １９８９年４月２５日新訂版第１刷
