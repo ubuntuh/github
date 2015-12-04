@@ -47,6 +47,9 @@ google() {
 google-en() {
     xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=$*"
 }
+google-i() {
+    xdg-open "https://www.google.com/search?tbm=isch&q=$*"
+}
 news() {
     xdg-open "https://news.google.com/?ned=us"
 }
