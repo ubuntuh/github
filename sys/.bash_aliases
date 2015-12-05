@@ -15,6 +15,7 @@ PROMPT_COMMAND='echo -e "\e]0;" $(date +%H:%M:%S) "\a"'
       md=~/github/md
     book=~/github/md/book
    oscar=~/github/md/lib/oscar
+ thought=~/github/md/thought
      src=~/github/src
     bash=~/github/src/bash
        c=~/github/src/c
