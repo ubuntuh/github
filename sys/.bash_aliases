@@ -22,6 +22,7 @@ PROMPT_COMMAND='echo -e "\e]0;" $(date +%H:%M:%S) "\a"'
      clj=~/github/src/clojure
 halloway=~/github/src/clojure/halloway
      cpp=~/github/src/cpp
+  python=~/github/src/python
      sys=~/github/sys
    ejdic=~/github/sys/ejdic-hand-utf8.txt
    edict=~/github/sys/edict

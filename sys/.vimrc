@@ -1,15 +1,20 @@
+set ambiwidth=double
 " 「~/.vimrc」などから「so ~/github/sys/.vimrc」などとして呼び出すことができる。
 set autoindent
 " 新たにタブキーが押された際、タブ文字ではなく（複数の）空白文字を入力します。
 " タブ文字を入力したい場合には、Ctrl+V, Tab で入力できます。
 set expandtab
+" status line を常に表示します。
+set laststatus=2
 " 空白文字などを可視化します。
 set list
-" 空白文字などの表示方法を設定します。
+" 空白文字などの表示方法を設定します。double width になる文字を指定すると ambiwidth=double と衝突してエラーになります。
+" space は、空白文字を意味します。
 " trail は、行末の空白文字を意味します。
-set listchars=eol:$,extends:>,nbsp:%,precedes:<,space:·,tab:>-,trail:~
+set listchars=eol:$,extends:>,nbsp:%,precedes:<,tab:>-,trail:~
 " 行数を表示します。
 set number
+set scrolloff=999
 set shellcmdflag=-ic
 " インデントに用いられる空白文字の数を設定します。
 set shiftwidth=4
@@ -19,6 +24,7 @@ set smartindent
 set smarttab
 " 指定した数の空白文字を一つのタブ文字のように操作します。バックスペースキーについて有効です。
 set softtabstop=4
+set statusline=%F%M%=L%l/%L\ 0x%04B
 " タブ文字がいくつの空白文字として表示されるか設定します。
 set tabstop=4
 
