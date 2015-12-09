@@ -55,6 +55,9 @@ google-i() {
 news() {
     xdg-open "https://news.google.com/?ned=us"
 }
+youtube() {
+    xdg-open "https://www.youtube.com/results?search_query=$*"
+}
 wikipedia() {
     xdg-open "https://en.wikipedia.org/wiki/$1"
 }
