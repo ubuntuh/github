@@ -1,0 +1,32 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import subprocess
+
+print("# ls コマンドを使うとカレントディレクトリにあるファイルの一覧を得ることができます。他にも色々できます。")
+print(" bash> ls")
+subprocess.call("ls", shell=True)
+print("# ls コマンドについて、Ubuntu では初期状態からいくつかのエイリアス（別名）が設定されているようです。")
+print("# bash で alias | grep ls などとするとわかります。")
+print("# ls は、ls --color=auto のエイリアスです。--color=auto というのは、標準出力がターミナルに繋がれている場合のみファイルの種類に応じて着色表示するという意味です。本来の ls を /bin/ls などとして直接呼び出すと、--color=never と同等なので着色されません。man ページの --color の項には default は always だと説明されていますが、その意味は、単に --color とのみ指定した場合には --color=always と同じ意味だということです。always を用いると、例えば ls --color > temp.txt とすると、temp.txt には着色のための制御文字が混ざります。")
+print(" bash> ls --color=always")
+subprocess.call("ls --color=always", shell=True)
+print("# l は ls -CF のエイリアスです。-C オプションは各ファイルを列状に並べます。標準出力がターミナルに繋がれている場合だと区別がつきませんが、ls | cat と ls -C | cat を比較すれば違いがわかりやすいです。-F オプションは、ファイルの種類に応じて、実行可能ファイルには * を、ディレクトリには / を、ソケットには = を、プロセス間通信のためのドアには > を、シンボリックリンクには @ を、名前つきパイプ（FIFO ファイル）には | を付けて表示します。")
+print(" bash> ls -CF")
+subprocess.call("ls -CF", shell=True)
+print("# la は ls -A のエイリアスです。-A は --almost-all の意味で、. で始まる隠しファイルは出力するものの、. と .. は表示しません。")
+print(" bash> ls -A")
+subprocess.call("ls -A", shell=True)
+print("# ll は ls -alF のエイリアスです。-a は全て表示します。-l はリスト状に表示します。-F は上に述べたようにファイルの属性を記号で表示します。")
+print("# 1 列目はファイルタイプおよびアクセス権を表します。以降、リンク数、owner、group、バイト数、更新日時、ファイル名です。ファイルタイプはディレクトリが d、シンボリックリンクが l、それ以外が - で表されます。アクセス権は、9 文字中 3 文字毎に、owner、group、others の、read、write、execute 権限を表示します。リンク数は、ディレクトリについてはディレクトリ数、ファイルについてはハードリンク数です。ハードリンクとは、シンボリックリンクとは違い、i ノード番号を直接参照するものです。ファイルの移動に耐えますが外部のファイルシステムを参照できません。")
+print(" bash> ls -alF | head")
+subprocess.call("ls -alF | head", shell=True)
+print("# -S オプションを使うと、ファイルサイズでソートされます。-h を使うと、ファイルサイズが --human-readable に人間にとって読みやすく表示できます。")
+print(" bash> ls -hlS | head")
+subprocess.call("ls -hlS | head", shell=True)
+print("# -R オプションで、サブディレクトリの内容を再帰的に一覧します。")
+print(" bash> ls -R | head")
+subprocess.call("ls -R | head", shell=True)
+print("# -i で i ノード番号を表示します。--full-time を用いると、詳細すぎますが、ISO 形式で更新日時を表示できます。")
+print(" bash> ls -i --full-time | head")
+subprocess.call("ls -i --full-time | head", shell=True)
+
