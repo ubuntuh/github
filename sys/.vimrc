@@ -1,6 +1,19 @@
-set ambiwidth=double
 " 「~/.vimrc」などから「so ~/github/sys/.vimrc」などとして呼び出すことができる。
+
+" 論理行でカクカクスクロールするのをやめさせる方法はないようです。
+" http://stackoverflow.com/questions/8369021/in-vim-how-to-scroll-continuously-by-screen-lines-when-wrapping-is-enabled
+
+" 表示行で移動しやすくします。
+noremap j gj
+noremap k gk
+noremap <Down>  gj
+noremap <Up> gk
+noremap gj j
+noremap k gk
+set ambiwidth=double
 set autoindent
+" 行全体が表示できなくても一部を表示します。
+set display+=lastline
 " 新たにタブキーが押された際、タブ文字ではなく（複数の）空白文字を入力します。
 " タブ文字を入力したい場合には、Ctrl+V, Tab で入力できます。
 set expandtab

@@ -1,5 +1,5 @@
 # ~/.bash_aliases などから「. ~/github/sys/.bash_aliases」などとして呼び出すことができる。
-alias emacs='emacs --no-window-system'
+# alias emacs='emacs --no-window-system'
 HISTSIZE=-1
 HISTFILESIZE=-1
 export MANPATH=~/github/sys/man:$MANPATH
