@@ -1,5 +1,5 @@
-# ~/.bash_aliases などから「. ~/github/sys/.bash_aliases」などとして呼び出すことができる。
-# alias emacs='emacs --no-window-system'
+#!/bin/bash
+# ~/.bash_aliases などから「. ~/github/sys/bash_aliases.sh」などとして呼び出すことができる。
 HISTSIZE=-1
 HISTFILESIZE=-1
 export MANPATH=~/github/sys/man:$MANPATH
@@ -8,7 +8,10 @@ export INFOPATH=~/github/sys/info:$INFOPATH
 PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
 PS2='\[\e[92;1m\]>\[\e[0m\] '
 title='TITLE'
-PROMPT_COMMAND='echo -e "\e]0;" $(date +%H:%M:%S) "\a"'
+# ターミナルの制御文字を使ってタイトルを変更します。
+echo -e "\e]0;" $(date +%H:%M:%S) "\a"
+# プロンプトを表示するたびに命令を実行することもできます。
+# PROMPT_COMMAND='echo -e "\e]0;" $(date +%H:%M:%S) "\a"'
      doc=~/Documents
       dl=~/Downloads
       pr=~/Programming

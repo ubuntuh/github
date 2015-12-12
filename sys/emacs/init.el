@@ -1,9 +1,15 @@
 ;; Add (load "~/github/sys/emacs/init.el") in ~/.emacs.d/init.el
+;; ウィンドウサイズを指定します。
+(if window-system
+  (set-frame-size (selected-frame) 69 40))
 ;; ロードパスにパスを追加します。
 (add-to-list 'load-path "~/github/sys/emacs/site-lisp")
 ;; ロードパスの追加が機能していることを確認するためにサンプルプログラムを読み込みます。正しく読み込めていれば、Alt+X helloworld とすると「hello, world」と出力されます。
 ;;(require 'helloworld)
 (autoload 'helloworld "helloworld" nil t)
+
+;;(setq explicit-shell-file-name "/bin/bash")
+;;(setq shell-file-name "/bin/bash")
 
 ;; ポインタの位置を記憶して復元します。
 ;; 記憶するポインタ位置のデータはデフォルトでは ~/.emacs.d/places というファイルに記録されるようです。
@@ -21,13 +27,13 @@
 ;; タブ文字ではなく空白でインデントをします。
 (setq-default indent-tabs-mode nil)
 ;; 行頭で C-k を a 回押したら、行の内容だけでなく行末の改行も削除します。
-(setq kill-whole-line t)
+;;(setq kill-whole-line t)
 ;; スクロール関係の設定をします。
-(setq scroll-step 1)
-(setq scroll-conservatively 10000)
-;(setq auto-window-vscroll nil)
-(setq scroll-margin 10)
-(setq next-screen-context-lines 2)
+;;(setq scroll-step 1)
+;;(setq scroll-conservatively 10000)
+;;(setq auto-window-vscroll nil)
+;;(setq scroll-margin 10)
+;;(setq next-screen-context-lines 2)
 
 ;; ポインタを点滅させません。
 (blink-cursor-mode 0)
@@ -106,6 +112,10 @@
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; http://danamlund.dk/emacs/no-easy-keys.html
+;; http://superuser.com/questions/437953/disable-arrow-keys-in-emacs
+(require 'no-easy-keys)
+(no-easy-keys 1)
 
 
 ;; 日本語入力プログラムである mozc に関する設定をします。
@@ -116,10 +126,4 @@
 ;; (setq default-input-method "japanese-mozc")
 ;; (setq mozc-candidate-style 'overlay)
 ;; (toggle-input-method)
-
-
-
-
-
-
 

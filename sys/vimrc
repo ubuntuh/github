@@ -1,4 +1,4 @@
-" 「~/.vimrc」などから「so ~/github/sys/.vimrc」などとして呼び出すことができる。
+" 「~/.vimrc」などから「so ~/github/sys/vimrc」などとして呼び出すことができる。
 
 " 論理行でカクカクスクロールするのをやめさせる方法はないようです。
 " http://stackoverflow.com/questions/8369021/in-vim-how-to-scroll-continuously-by-screen-lines-when-wrapping-is-enabled
