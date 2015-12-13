@@ -1,8 +1,13 @@
+# emacs autosave file
+\#*\#
+# backup file
 *~
 # Java
 bin/
 # Java
 .classpath
+# emacs lisp compiled file
+*.elc
 # Java
 .metadata
 # C, etc.
@@ -11,7 +16,7 @@ bin/
 *.out
 # Java
 .project
-# Python
+# Python compiled file
 *.pyc
 # Java
 .settings/

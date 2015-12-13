@@ -11,8 +11,8 @@
 ;;(setq explicit-shell-file-name "/bin/bash")
 ;;(setq shell-file-name "/bin/bash")
 
-;; ポインタの位置を記憶して復元します。
-;; 記憶するポインタ位置のデータはデフォルトでは ~/.emacs.d/places というファイルに記録されるようです。
+;; ポイントの位置を記憶して復元します。
+;; 記憶するポイント位置のデータはデフォルトでは ~/.emacs.d/places というファイルに記録されるようです。
 (require 'saveplace)
 (setq-default save-place t)
 ;; example.txt~ といったバックアップファイルを作りません。
@@ -35,7 +35,7 @@
 ;;(setq scroll-margin 10)
 ;;(setq next-screen-context-lines 2)
 
-;; ポインタを点滅させません。
+;; ポイントを点滅させません。
 (blink-cursor-mode 0)
 ;; ツールバーを非表示にします。
 (tool-bar-mode 0)
@@ -59,9 +59,9 @@
 (setq require-final-newline t)
 (setq next-line-add-newlines nil)
 
-;; ポインタのある行を強調表示します。
+;; ポイントのある行を強調表示します。
 ;; ターミナルで用いると不適当な色になることがあるようです。
-;; ポインタのある行の色の表示がわかりにくくなってしまうことがあるようなので、使いません。
+;; ポイントのある行の色の表示がわかりにくくなってしまうことがあるようなので、使いません。
 ;;(global-hl-line-mode 1)
 ;; 行番号を表示します。
 (global-linum-mode t)
@@ -108,6 +108,7 @@
 
 ;; デフォルトでは markdown 文書を扱えないので、広く使われている markdown-mode.el を利用して、扱えるようにします。markdown-mode.el は、キーワードを強調表示するのみならず、プレビューの表示など多くの機能を持っています。
 ;; なおそのためには、sudo apt-get install emacs-goodies-el などとして markdown-mode.el をインストールする必要があります。
+;; markdown-mode で、リストを記述する際には、改行の際に M-RET とすることが便利です。
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
