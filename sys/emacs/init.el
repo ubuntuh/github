@@ -123,6 +123,11 @@
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
+
 ;; http://danamlund.dk/emacs/no-easy-keys.html
 ;; http://superuser.com/questions/437953/disable-arrow-keys-in-emacs
 (require 'no-easy-keys)
