@@ -1,12 +1,20 @@
 ;; Add (load "~/github/sys/emacs/init.el") in ~/.emacs.d/init.el
 ;; ウィンドウサイズを指定します。
-(if window-system
-  (set-frame-size (selected-frame) 69 40))
+(add-to-list 'default-frame-alist '(width . 69))
+(add-to-list 'default-frame-alist '(height . 40))
+;;(if window-system
+;;  (set-frame-size (selected-frame) 69 40))
+
 ;; ロードパスにパスを追加します。
 (add-to-list 'load-path "~/github/sys/emacs/site-lisp")
 ;; ロードパスの追加が機能していることを確認するためにサンプルプログラムを読み込みます。正しく読み込めていれば、Alt+X helloworld とすると「hello, world」と出力されます。
 ;;(require 'helloworld)
 (autoload 'helloworld "helloworld" nil t)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start)
+  )
 
 ;;(setq explicit-shell-file-name "/bin/bash")
 ;;(setq shell-file-name "/bin/bash")
@@ -46,6 +54,8 @@
 (scroll-bar-mode -1)
 ;; スタート画面を表示しません。
 (setq inhibit-startup-screen t)
+;; 1 つもファイルを開いていない時に表示されるメッセージを消します。
+(setq initial-scratch-message nil)
 
 ;; 改行コードが LF であった場合に、モードラインに : ではなく (LF) と表示します。
 (setq eol-mnemonic-unix "(LF)")

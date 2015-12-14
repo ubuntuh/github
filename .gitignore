@@ -10,6 +10,8 @@ bin/
 *.elc
 # git
 *gitignored*
+# Haskell
+*.hi
 # Java
 .metadata
 # C, etc.

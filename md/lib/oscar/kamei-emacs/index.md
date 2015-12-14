@@ -136,6 +136,66 @@
 - p. 61 - rename-buffer
 - C-x C-b list-buffers
 - buffer-menu
+- p. 63 - ? describe-mode
+- C-d Buffer-menu-delete-backwards
+- d Buffer-menu-delete
+- s Buffer-menu-save
+- u Buffer-menu-unmark
+- DEL Buffer-menu-backup-unmark
+- x Buffer-menu-execute
+- ~ Buffer-menu-not-modified
+- 1 Buffer-menu-1-window
+- 2 Buffer-menu-2-window
+- f Buffer-menu-this-window
+- o Buffer-menu-other-window
+- m Buffer-menu-mark
+- q Buffer-menu-select
+- C-x a append-to-buffer
+- prepend-to-buffer
+- copy-to-buffer
+- insert-buffer
+- p. 64 - prepend-to-buffer
+- C-x C-f find-file
+- C-x C-r find-file-read-only
+- C-x C-v find-alternate-file
+- view-file
+- p. 65 - C-x C-s save-buffer
+- C-x s save-some-buffers
+- C-x C-w write-file
+- set-visited-file-name
+- C-x i insert-file
+- p. 66 - write-region
+- append-to-file
+- delete-file
+- copy-file
+- rename-file
+- add-name-to-file
+- make-symbolic-links
+- C-x C-f find-file （ファイル名にディレクトリ名を指定すると、ディレクトリエディタ (dired) が起動する。）
+- C-x d dired
+- p. 67 - ? dired-summary
+- h desribe-mode
+- g revert-buffer
+- f dired-find-file
+- o dired-find-file-other-window
+- v dired-view-file
+- d dired-flag-file-deleted
+- # dired-flag-auto-save-files
+- ~ dired-flag-backup-files
+- dired-flag-backup-and-auto-save-files
+- . dired-clean-directory
+- u dired-unflag
+- DEL dired-backup-unflag
+- x dired-do-deletions
+- B dired-byte-recompile
+- C dired-compress
+- U dired-uncompress
+- M dired-chmod
+- O dired-chown
+- G dired-chgrp
+- c dired-copy-file
+- r dired-rename-file
+- p. 69 - M-y yank-pop
 
 
 
