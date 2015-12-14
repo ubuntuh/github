@@ -8,6 +8,8 @@ bin/
 .classpath
 # emacs lisp compiled file
 *.elc
+# git
+*gitignored*
 # Java
 .metadata
 # C, etc.

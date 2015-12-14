@@ -1,5 +1,9 @@
 #!/bin/bash
 # ~/.bash_aliases などから「. ~/github/sys/bash_aliases.sh」などとして呼び出すことができる。
+alias cp="cp --interactive --verbose"
+alias mv="mv --interactive --verbose"
+alias rm="rm --interactive --verbose"
+alias open=xdg-open
 HISTSIZE=-1
 HISTFILESIZE=-1
 export MANPATH=~/github/sys/man:$MANPATH
