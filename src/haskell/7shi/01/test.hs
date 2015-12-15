@@ -17,6 +17,7 @@ main = do
   f11
   f12
   f13
+  f14
 
 f00 :: IO ()
 f00 = print "f00"
@@ -277,6 +278,18 @@ f13 = do
           num1 = rot13Num'' num0
           char0 = Data.Char.chr $ num1 + Data.Char.ord offset
           rot13Num'' x = mod (x + 13) 26
+
+f14 :: IO ()
+f14 = do
+  print $ isort [4, 6, 9, 8, 3, 5, 1, 7, 2]
+  where
+    isort [] = []
+    isort (x:xs) = insert x (isort xs)
+     where
+      insert x [] = [x]
+      insert x (y:ys)
+        | x < y = x : y : ys
+        | otherwise = y : insert x ys
 
 
 
