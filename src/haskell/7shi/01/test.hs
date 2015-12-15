@@ -1,5 +1,6 @@
 #!/usr/bin/env runhaskell
 module Main (main) where
+import qualified Data.Char
 main :: IO ()
 main = do
   f00
@@ -12,6 +13,10 @@ main = do
   f07
   f08
   f09
+  f10
+  f11
+  f12
+  f13
 
 f00 :: IO ()
 f00 = print "f00"
@@ -124,4 +129,158 @@ f09 = do
       2 -> 1
       _
         | 3 <= x -> (fib3 (x - 2)) + (fib3 (x - 1))
+
+f10 :: IO ()
+f10 = do
+  print [1, 2, 3, 4, 5]
+  print $ [1, 2, 3, 4, 5] !! 3
+  print [1..5]
+  print $ [1, 2, 3] ++ [4, 5]
+  print $ 1 : [2..5]
+  print $ 1 : 2 : [3..5]
+  print $ [1..4] ++ [5]
+  print $ "abcde"
+  print $ ['a', 'b', 'c', 'd', 'e']
+  print $ ['a'..'e']
+  print $ 'a' : "bcde"
+  print $ 'a' : 'b' : "cde"
+  print $ "abc" ++ "de"
+  print $ "abcde" !! 3
+  print $ getFirst [1..5]
+  print $ getFirst "abcdef"
+  print $ getSecond [1..5]
+  print $ getSecond "abcdef"
+  where
+    getFirst (x : xs) = x
+    getSecond (_ : x : _) = x
+
+f11 :: IO ()
+f11 = do
+  print $ length [1, 2, 3]
+  print $ sum [1..5]
+  print $ product [1..5]
+  print $ take 2 [1, 2, 3]
+  print $ drop 2 [1, 2, 3]
+  print $ reverse [1..5]
+  print $ getLength [1, 2, 3]
+  print $ getSum [1..5]
+  print $ getProduct [1..5]
+  print $ take''' 2 [1, 2, 3]
+  print $ drop''' 2 [1, 2, 3]
+  print $ reverse''' [1..5]
+  print $ reverse'''' [1..5]
+  print $ fact''' 5
+  where
+    getLength [] = 0
+    getLength (_:xs) = 1 + getLength xs
+    getSum [x] = x
+    getSum (x:xs) = x + getSum xs
+    getProduct [x] = x
+    getProduct (x:xs) = x * getProduct xs
+    take''' 0 _ = []
+    take''' y (x:xs)
+      | 1 <= y  = x : take''' (y - 1) xs
+    drop''' 0 xs = xs
+    drop''' y (x:xs)
+      | 1 <= y = drop''' (y - 1) xs
+    reverse''' [] = []
+    reverse''' (x:xs) = reverse''' xs ++ [x]
+    reverse'''' xs = f xs []
+      where
+        -- 1 つ目のリストの最初の要素を取り外して 2 つ目のリストの先頭に追加するような動作をする関数です。
+        f :: [a] -> [a] -> [a]
+        f [] ys = ys
+        f (x:xs) ys = f xs (x:ys)
+    fact''' x
+      | 1 <= x = product [1..x]
+
+f12 :: IO ()
+f12 = do
+  print $ addsub 1 2
+  print v0
+  print v1
+  let
+    p0 = (1, 2)
+  print $ fst p0
+  print $ snd p0
+  let
+    p3 = (1, 2, 3)
+  print p3
+  let
+    (_, _, p3z) = p3
+  print p3z
+  print $ perpPoint 0 2 1 (-1) 0
+  print $ perpPoint' (0, 2) (1, -1, 0)
+  where
+    addsub x y = (x + y, x - y)
+    (v0, v1) = addsub 1 2
+    -- 点 (p, q) から直線 ax + bx + c に下した垂線の交点。
+    -- perp = perpendicular （垂線）?
+    perpPoint p q a b c = (x, y)
+      where
+        c2OnB2 = q - (b / a) * p
+        x = (-c2OnB2 + c / b) * (a * b) / (a * a + b * b)
+        y = - a / b * x + c / b
+    -- 正解。
+    perpPoint' (p, q) (a, b, c) = (x, y)
+      where
+        x = (a * c + b * d) / (a * a + b * b)
+        y = (b * c - a * d) / (a * a + b * b)
+        d = b * p - a * q
+
+f13 :: IO ()
+f13 = do
+  print $ Data.Char.ord 'A'
+  print $ Data.Char.chr 65
+  print $ rot13 "HELLOWORLD"
+  print $ rot13' "Hello, World!"
+  print $ rot13'' "Hello, World!"
+  where
+    rot13 :: [Char] -> [Char]
+    rot13 [] = []
+    rot13 (x:xs) = rot13Char x : rot13 xs
+    rot13Char :: Char -> Char
+    rot13Char x = Data.Char.chr num1
+      where
+        num0 = Data.Char.ord x - Data.Char.ord 'A'
+        num1 = rot13Num num0 + Data.Char.ord 'A'
+    rot13Num :: Int -> Int
+    rot13Num x = mod (x + 13) 26
+    -- 正解。
+    rot13' "" = ""
+    rot13' (x:xs) = rot13ch' x : rot13' xs
+    rot13ch' ch
+      | 'A' <= ch && ch <= 'M' || 'a' <= ch && ch <= 'm'
+        = Data.Char.chr $ Data.Char.ord ch + 13
+      | 'N' <= ch && ch <= 'Z' || 'n' <= ch && ch <= 'z'
+        = Data.Char.chr $ Data.Char.ord ch - 13
+      | otherwise = ch
+    --
+    rot13'' :: [Char] -> [Char]
+    rot13'' [] = []
+    rot13'' (x:xs) = rot13Char'' x : rot13'' xs
+     where
+      rot13Char'' :: Char -> Char
+      rot13Char'' x
+        | 'A' <= x && x <= 'Z' = rot13Capital'' x
+        | 'a' <= x && x <= 'z' = rot13Small'' x
+        | otherwise = x
+       where
+        rot13Capital'' :: Char -> Char
+        rot13Capital'' x = rot13CharOffset'' 'A' x
+        rot13Small'' :: Char -> Char
+        rot13Small'' x = rot13CharOffset'' 'a' x
+        rot13CharOffset'' :: Char -> Char -> Char
+        rot13CharOffset'' offset x = char0
+         where
+          num0 = Data.Char.ord x - Data.Char.ord offset
+          num1 = rot13Num'' num0
+          char0 = Data.Char.chr $ num1 + Data.Char.ord offset
+          rot13Num'' x = mod (x + 13) 26
+
+
+
+
+
+
 
