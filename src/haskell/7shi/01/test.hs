@@ -1,6 +1,7 @@
 #!/usr/bin/env runhaskell
 module Main (main) where
 import qualified Data.Char
+import qualified Debug.Trace
 main :: IO ()
 main = do
   f00
@@ -18,6 +19,8 @@ main = do
   f12
   f13
   f14
+  f15
+  f16
 
 f00 :: IO ()
 f00 = print "f00"
@@ -291,9 +294,30 @@ f14 = do
         | x < y = x : y : ys
         | otherwise = y : insert x ys
 
+f15 :: IO ()
+f15 = do
+  Debug.Trace.traceIO $ show $ test 5
+  where
+    test x = Debug.Trace.trace ("test " ++ show x) x
 
-
-
+f16 :: IO ()
+f16 = do
+  Debug.Trace.traceIO $ show $ isort [4, 6, 9, 8, 3, 5, 1, 7, 2]
+  where
+    insert x [] = [x]
+    insert x (y:ys)
+      | x < y = x : y : ys
+      | otherwise = y : insert x ys
+    isort [] = []
+    isort (x:xs) = Debug.Trace.trace dbg1 $ Debug.Trace.trace dbg2 ret
+     where
+      ret = insert x xs'
+      xs' = isort xs
+      dbg1 = "isort " ++ show (x:xs) ++ " = " ++
+             "insert " ++ show x ++
+             " (isort " ++ show xs ++ ")"
+      dbg2 = "insert " ++ show x ++ "," ++ show xs' ++
+             " = " ++ show ret
 
 
 
