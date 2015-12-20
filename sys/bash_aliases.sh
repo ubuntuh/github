@@ -3,8 +3,8 @@
 alias cp="cp --interactive --verbose"
 alias mv="mv --interactive --verbose"
 alias rm="rm --interactive --verbose"
-alias emc="emacsclient -n"
-alias op="xdg-open"
+alias emacs="emacs --no-window-system"
+alias open="xdg-open"
 HISTSIZE=-1
 HISTFILESIZE=-1
 export MANPATH=~/github/sys/man:$MANPATH
@@ -36,9 +36,6 @@ halloway=~/github/src/clojure/halloway
      sys=~/github/sys
    ejdic=~/github/sys/ejdic-hand-utf8.txt
    edict=~/github/sys/edict
-em() {
-    emacs "$@" &
-}
 html() {
     if [ $# -eq 0 ]
     then
