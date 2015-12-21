@@ -1,9 +1,13 @@
 ;; Add (load "~/github/sys/emacs/init.el") in ~/.emacs.d/init.el
+;;(setq inhibit-message t)
 ;; ウィンドウサイズを指定します。
-(add-to-list 'default-frame-alist '(width . 69))
-(add-to-list 'default-frame-alist '(height . 40))
-;;(if window-system
-;;  (set-frame-size (selected-frame) 69 40))
+(if window-system
+  (progn
+    (add-to-list 'default-frame-alist '(width . 69))
+    (add-to-list 'default-frame-alist '(height . 40))
+    ;;(set-frame-size (selected-frame) 69 40))
+    )
+  )
 
 ;; ロードパスにパスを追加します。
 (add-to-list 'load-path "~/github/sys/emacs/site-lisp")
@@ -108,7 +112,6 @@
 ;;(load-theme 'whiteboard t)
 ;;(load-theme 'wombat t)
 ;; 以上はデフォルトで使用可能なカラーテーマでした。
-(load-file "~/github/sys/emacs/site-lisp/manoj-dark2-theme.el")
 
 ;; ターミナルで起動した場合の色がおかしい気がする。
 ;; TERM=xterm-256color emacs -nw などとして起動すればよいという話題があるようだが、自分の環境ではそもそも変数 TERM は xterm-256color だし、export もされている。emacs 内で色数を見ても 500 以上表示される。
@@ -142,4 +145,25 @@
 ;; (setq default-input-method "japanese-mozc")
 ;; (setq mozc-candidate-style 'overlay)
 ;; (toggle-input-method)
+
+(if window-system
+  (progn
+    (load-file "~/github/sys/emacs/site-lisp/manoj-dark2-theme.el")
+    )
+  (progn
+    ;; M-x list-colors-display
+    ;;(set-face-background 'default "color-16")
+    (set-face-foreground 'default "brightwhite")
+    ;;(set-face-foreground 'font-lock- "brightred")
+    (set-face-foreground 'font-lock-builtin-face "brightred")
+    (set-face-foreground 'font-lock-constant-face "brightred")
+    (set-face-foreground 'font-lock-preprocessor-face "brightred")
+    (set-face-foreground 'font-lock-comment-face "color-121")
+    (set-face-foreground 'font-lock-function-name-face "color-128")
+    (set-face-foreground 'font-lock-keyword-face "color-199")
+    (set-face-foreground 'font-lock-string-face "color-105")
+    (set-face-foreground 'font-lock-variable-name-face "color-192")
+    )
+  )
+
 

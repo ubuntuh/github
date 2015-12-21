@@ -4,6 +4,7 @@ alias cp="cp --interactive --verbose"
 alias mv="mv --interactive --verbose"
 alias rm="rm --interactive --verbose"
 alias emacs="emacs --no-window-system"
+alias emacsw="/usr/bin/emacs"
 alias open="xdg-open"
 HISTSIZE=-1
 HISTFILESIZE=-1
