@@ -32,12 +32,6 @@
 ;; #example.txt# といったオートセーブファイルを作りません。
 (setq auto-save-default nil)
 
-;; タブ関係の設定をします。
-;; 1 つのタブの幅は空白 4 つ分とします。
-(setq default-tab-width 4)
-(setq tab-stop-list '(4 8 12 16))
-;; タブ文字ではなく空白でインデントをします。
-(setq-default indent-tabs-mode nil)
 ;; 行頭で C-k を a 回押したら、行の内容だけでなく行末の改行も削除します。
 ;;(setq kill-whole-line t)
 ;; スクロール関係の設定をします。
@@ -166,4 +160,40 @@
     )
   )
 
+;; タブ関係の設定をします。
+;; 1 つのタブの幅は空白 4 つ分とします。
+;; tab-width がバッファローカルであるのに対して、default-tab-width はそうではありません。
+(setq default-tab-width 4)
+(setq tab-stop-list '(4 8 12 16))
+;; タブ文字ではなく空白文字でインデントをします。
+(setq-default indent-tabs-mode nil)
+;; emacs のバージョン 24.4 から electric-indent-mode がデフォルトでオンになった。
+;; emacs では、改行時の動作として 3 つの関数がある。newline、newline-and-indent、reindent-then-newline-and-indent である。動作は名前が示す通りだが、reindent とは、現在の行の行頭のインデントを調整しなおすことである。
+;; electric-indent-mode は、このうち、reindent-then-newline-and-indent の動作をするようである。
+;; この reindent が意図と異なる動作をすると非常に煩わしいので、reindent というものは好ましくないと思われる。
+;; そのため、その動作をしてしまう electric-indent-mode はオフでいい。
+(electric-indent-mode -1)
+;; newline-and-indent の動作は、デフォルトで C-j で可能である。
+;; 一方で、electric-indent-mode をオフにした場合、普通にエンターキーを押したのでは、単に newline の動作になるようである。C-j のように、newline-and-indent の動作をした方が、一般的なテキストエディタとの関係で自然だろう。
+;; 以下のように設定することで、エンターキーで newline-and-indent ができるようになるようだ。
+(global-set-key "\C-m" 'newline-and-indent)
+;; モードごとの設定を行います。
+;; 特定の文字を入力すると改行をし、コードのフォーマットも自動的に整えてくれる、といった動作も可能ですが、設定は複雑です。
+;; 状況に応じた保守などできない複雑で私的なカスタマイズに依存することになりかねず、そのような状況は回避すべきであると思われます。
+;; そのため、自動化は簡素であることを基本的な方針としたいと思います。
+;; そもそも、emacs lisp のインデントの挙動が私には奇妙です。
+;; lisp-indent-offset を指定すると、状況に応じたインデント幅の変化を抑制できます。
+(setq lisp-indent-offset 2)
+(add-hook 'c++-mode-hook
+  '(lambda ()
+    (progn
+      ;; インデント 1 段の幅を指定します。
+      (setq c-basic-offset 4)
+      ;; c-hungry-delete-key は、改行まで削除するところが直感的でないので使わない。
+      ;;(setq c-hungry-delete-key t)
+      ;; c-tab-always-indent を nil にしても、行頭でインデントが自由でないことは変わらない。
+      ;; (setq c-tab-always-indent nil)
+      )
+    )
+  )
 
