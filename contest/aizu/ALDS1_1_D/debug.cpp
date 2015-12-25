@@ -4,7 +4,16 @@
 
 namespace {
     bool isDebug = false;
-    int p(const char *fmt, ...) {
+    void setDebugMode(int argc, char** argv) {
+        int i;
+        for (i = 1; i < argc; i++) {
+            if (std::string(argv[i]) == "--debug") {
+                isDebug = true;
+                break;
+            }
+        }
+    }
+    int p(const char* fmt, ...) {
         va_list args;
         int result;
         if (isDebug) {
@@ -19,12 +28,6 @@ namespace {
 }
 
 int main(int argc, char** argv) {
-    int i;
-    for (i = 1; i < argc; i++) {
-        if (std::string(argv[i]) == "--debug") {
-            isDebug = true;
-            p("Debug Mode (isDebug == %d)\n", isDebug);
-            break;
-        }
-    }
+    setDebugMode(argc, argv);
+    p("Debug Mode (isDebug == %d)\n", isDebug);
 }

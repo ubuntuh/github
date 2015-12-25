@@ -125,10 +125,12 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 
+;; 矢印キーや Delete キーを無効にし、キーバインドに慣れる。
+;; しかし、キーバインドで移動していると、Ctrl キーが緩んだ時に文字を入力してしまうのが煩わしい。
 ;; http://danamlund.dk/emacs/no-easy-keys.html
 ;; http://superuser.com/questions/437953/disable-arrow-keys-in-emacs
-(require 'no-easy-keys)
-(no-easy-keys 1)
+;;(require 'no-easy-keys)
+;;(no-easy-keys 1)
 
 
 ;; 日本語入力プログラムである mozc に関する設定をします。
@@ -145,18 +147,21 @@
     (load-file "~/github/sys/emacs/site-lisp/manoj-dark2-theme.el")
     )
   (progn
+    ;; 色の設定をします。
+    ;; 最も基本的な約 16 色については、色名がわかりやすいので、これを重視して使ってしまうことにします。
     ;; M-x list-colors-display
     ;;(set-face-background 'default "color-16")
     (set-face-foreground 'default "brightwhite")
     ;;(set-face-foreground 'font-lock- "brightred")
-    (set-face-foreground 'font-lock-builtin-face "brightred")
-    (set-face-foreground 'font-lock-constant-face "brightred")
-    (set-face-foreground 'font-lock-preprocessor-face "brightred")
-    (set-face-foreground 'font-lock-comment-face "color-121")
-    (set-face-foreground 'font-lock-function-name-face "color-128")
-    (set-face-foreground 'font-lock-keyword-face "color-199")
-    (set-face-foreground 'font-lock-string-face "color-105")
-    (set-face-foreground 'font-lock-variable-name-face "color-192")
+    (set-face-foreground 'font-lock-builtin-face "brightcyan")
+    (set-face-foreground 'font-lock-constant-face "brightblue")
+    (set-face-foreground 'font-lock-preprocessor-face "brightblue")
+    (set-face-foreground 'font-lock-comment-face "brightmagenta")
+    (set-face-foreground 'font-lock-function-name-face "brightgreen")
+    (set-face-foreground 'font-lock-keyword-face "brightcyan")
+    (set-face-foreground 'font-lock-string-face "brightblue")
+    (set-face-foreground 'font-lock-type-face "brightblue")
+    (set-face-foreground 'font-lock-variable-name-face "brightgreen")
     )
   )
 
