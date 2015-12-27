@@ -144,6 +144,7 @@
 
 (if window-system
   (progn
+    (setq x-select-enable-clipboard t)
     (load-file "~/github/sys/emacs/site-lisp/manoj-dark2-theme.el")
     )
   (progn
