@@ -119,6 +119,8 @@
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;; 改行をした時に行末の空白が削除されることを避けます。
+(setq markdown-indent-on-enter nil)
 
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
