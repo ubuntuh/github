@@ -27,3 +27,5 @@ In short, without this exclusive franchise called the Windows API, we would have
 要するに、Windows API という排他的権益なくしては、我々はとうに滅んでいただろう。  
 The Windows franchise is fueled by application development which is focused on our core APIs"  
 我々の中心的な API を重視したアプリケーション開発がなされることによって、Windows という権益は力を補給されているのである。」
+
+...
