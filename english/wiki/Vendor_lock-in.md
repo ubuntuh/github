@@ -14,7 +14,7 @@ Lock-in costs which creates barriers to market entry may result in antitrust act
 Main article: Criticism of Microsoft - Vendor lock-in
 
 The European Commission, in its March 24, 2004 decision on Microsoft's business practices, quotes, in paragraph 463, Microsoft general manager for C++ development Aaron Contorer as stating in a February 21, 1997 internal Microsoft memo drafted for Bill Gates:  
-Microsoft の商業慣行に対する欧州委員会の 2004 年 3 月 24 日の判決の第 463 節において、Microsoft の C++ 開発部長である Aaron Contorer が、1997 年 2 月 21 日に Bill Gates のために用意した社内メモにおいて、次のように書いたと記述されている。  
+Microsoft の商業慣行に対する欧州委員会の 2004 年 3 月 24 日の判決の第 463 節によると、Microsoft の C++ 開発部長である Aaron Contorer が、1997 年 2 月 21 日に Bill Gates のために用意した社内メモにおいて、次のように書いた。  
 "The Windows API is so broad, so deep, and so functional that most ISVs would be crazy not to use it.  
 「Windows の API (application programming interface) は、とても幅広く、とても深く、とても機能的であるために、ほとんどのソフトウェア提供者 (independent software vendor) においては、気が違っているのでなければそれを使う。  
 And it is so deeply embedded in the source code of many Windows apps that there is a huge switching cost to using a different operating system instead.  
