@@ -20,7 +20,7 @@ Microsoft の商業慣行に対する欧州委員会の 2004 年 3 月 24 日の
 And it is so deeply embedded in the source code of many Windows apps that there is a huge switching cost to using a different operating system instead.  
 そうしてそれは、多くの Windows アプリケーションのソースコードに極めて深く埋め込まれているために、Windows の代わりに別のオペレーティング・システムを使おうとすることには、巨大なスイッチング・コストがかかる。  
 It is this switching cost that has given customers the patience to stick with Windows through all our mistakes, our buggy drivers, our high TCO, our lack of a sexy vision at times, and many other difficulties.  
-このスイッチング・コストのゆえに、我々の失敗、例えばバグのあるドライバ、総保有コスト (total cost of ownership)、時に先進的な見通しの欠落、またその他の様々な困難にもかかわらず、顧客が Windows を使いつづけることに耐えている。  
+このスイッチング・コストのゆえに、我々の失敗、例えばバグのあるドライバ、高い総保有コスト (total cost of ownership)、時に先進的な見通しの欠落、またその他の様々な困難にもかかわらず、顧客が Windows を使いつづけることに耐えている。  
 [...] Customers constantly evaluate other desktop platforms, [but] it would be so much work to move over that they hope we just improve Windows rather than force them to move.  
 （中略）　顧客らは、他のデスクトップ・プラットフォームを常に評価しているが、それへの移行に多大な労力が必要になるがゆえに、移行せざるをえない状況にするのではなく、Windows 自体を改善して移行の必要をなくしてくれることを望んでいる。  
 In short, without this exclusive franchise called the Windows API, we would have been dead a long time ago.  
