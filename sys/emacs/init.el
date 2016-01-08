@@ -150,12 +150,15 @@
     (load-file "~/github/sys/emacs/site-lisp/manoj-dark2-theme.el")
     )
   (progn
+    ;; メニューバーを非表示にします。
+    (menu-bar-mode 0)
     ;; 色の設定をします。
     ;; 最も基本的な約 16 色については、色名がわかりやすいので、これを重視して使ってしまうことにします。
     ;; M-x list-colors-display
-    ;;(set-face-background 'default "color-16")
+    ;; (set-face-background 'default "color-16")
     (set-face-foreground 'default "brightwhite")
-    ;;(set-face-foreground 'font-lock- "brightred")
+    (set-face-background 'mode-line "color-238")
+    (set-face-foreground 'mode-line "color-16")
     (set-face-foreground 'font-lock-builtin-face "brightcyan")
     (set-face-foreground 'font-lock-constant-face "brightblue")
     (set-face-foreground 'font-lock-preprocessor-face "brightblue")
