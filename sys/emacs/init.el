@@ -195,6 +195,13 @@
 ;; そもそも、emacs lisp のインデントの挙動が私には奇妙です。
 ;; lisp-indent-offset を指定すると、状況に応じたインデント幅の変化を抑制できます。
 (setq lisp-indent-offset 2)
+(add-hook 'c-mode-hook
+  '(lambda ()
+    (progn
+      (setq c-basic-offset 4)
+      )
+   )
+  )
 (add-hook 'c++-mode-hook
   '(lambda ()
     (progn
