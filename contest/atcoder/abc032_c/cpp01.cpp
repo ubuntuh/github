@@ -1,4 +1,4 @@
-// Wrong Answer.
+// 積を int 型の変数で計算し、具体的には、long product とすべきところを int product としていて、そのまま submit して Wrong Answer になり、悩みました。
 #include <cstdio>
 
 int main() {
@@ -10,14 +10,13 @@ int main() {
         scanf("%d", &ss[i]);
     }
     int head = 0;
-    int product = 1;
+    long product = 1;
     for (int i = 0; i < N; i++) {
         if (ss[i] == 0) {
             maxlen = N;
             break;
         }
         product *= ss[i];
-        // printf("product = %d; head = %d\n", product, head);
         while (K < product) {
             if (i == head) {
                 head = i + 1;
@@ -26,12 +25,10 @@ int main() {
             }
             product /= ss[head];
             head++;
-            // printf("Head moved; product = %d; head = %d\n", product, head);
         }
         if (product <= K) {
             int len = i - head + 1;
             if (maxlen < len) maxlen = len;
-            // printf("product <= K; len = %d; maxlen = %d\n", len, maxlen);
         }
         continue0:;
     }

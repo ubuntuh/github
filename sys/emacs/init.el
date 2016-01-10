@@ -87,6 +87,11 @@
 (set-frame-parameter nil 'alpha 85)
 (add-to-list 'default-frame-alist '(alpha . 85))
 
+(desktop-save-mode 1)
+;; いわゆる「最近使ったファイル」に関する機能を有効にします。
+;; (require 'recentf)
+;; (recentf-mode 1)
+
 ;; カラーテーマを設定します。
 ;; gnome-terminal で使うと背景の透過が失われてしまうようです。
 ;; 以下の 14 種類のカラーテーマは、デフォルトで利用可能です。

@@ -6,4 +6,8 @@
 - Donald Knuth - The Art of Computer Programming
 - Donald Knuth - Concrete Mathematics
 - Herman Goldstine - The Computer from Pascal to Von Neumann （計算機の歴史 パスカルからノイマンまで）
+- David Patterson - Computer Organization and Design （コンピュータの構成と設計）
+- John Hennessy - Computer Architecture （コンピュータアーキテクチャ）
+- Nobumitsu Nakauchi - じっくり学ぶ曲線と曲面
+- Harold Abelson - Structure and Interpretation of Computer Programs
 
