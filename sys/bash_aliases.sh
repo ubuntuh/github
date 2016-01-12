@@ -23,6 +23,9 @@ echo -e "\e]0;" $(date +%H:%M:%S) "\a"
       dl=~/Downloads
       pr=~/Programming
      git=~/github
+ contest=~/github/contest
+    aizu=~/github/contest/aizu
+ atcoder=~/github/contest/atcoder
       md=~/github/md
     book=~/github/md/book
    oscar=~/github/md/lib/oscar
