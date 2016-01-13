@@ -7,18 +7,28 @@ alias e="emacs --no-window-system"
 alias emacs="emacs --no-window-system"
 alias emacsw="/usr/bin/emacs"
 alias open="xdg-open"
-HISTSIZE=-1
-HISTFILESIZE=-1
+# 連続して同一のコマンドが実行された場合にコマンド履歴に記録しない、空白で始まるコマンドは記録しない、といった機能を無効にする。
+unset HISTCONTROL
+# コマンド履歴が記録されるファイルは通常 ~/.bash_history だが、変更する。
+# 変数 HISTFILESIZE などを用いて、コマンド履歴の記録量を普通より大きくあるいは無制限に大きくしたいが、デフォルトの状態だと ~/.bashrc などでの変数 HISTSIZE などの設定によって、溢れたデータが削除されるようだ。その .bashrc ファイルなどを改変しても改善できるが、環境の再構築を簡単にするため、独自な記録ファイルにここで切り替えることによって記録の破壊を避ける。
+export HISTFILE=~/.bash_history2
+# コマンド履歴を無制限に大きく記録するための設定をする。
+# なお同じことを unset でやっても機能せず、記録は破壊される。
+export HISTFILESIZE=
+export HISTSIZE=
+# コマンド履歴に日時も記録する。また、history コマンドを使用した際にその日時を整形表示する。フォーマットは strftime 形式。
+export HISTTIMEFORMAT='(%F %a %T) '
 export MANPATH=~/github/sys/man:$MANPATH
 export INFOPATH=~/github/sys/info:$INFOPATH
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
 PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
 PS2='\[\e[92;1m\]>\[\e[0m\] '
 title='TITLE'
-# ターミナルの制御文字を使ってタイトルを変更します。
+# ターミナルの制御文字を使ってタイトルを変更する。
 echo -e "\e]0;" $(date +%H:%M:%S) "\a"
-# プロンプトを表示するたびに命令を実行することもできます。
+# プロンプトを表示するたびに命令を実行することもできる。
 # PROMPT_COMMAND='echo -e "\e]0;" $(date +%H:%M:%S) "\a"'
+# 変数を定義して、頻繁に用いるディレクトリに直接移動できるようにする。
      doc=~/Documents
       dl=~/Downloads
       pr=~/Programming
@@ -39,6 +49,7 @@ halloway=~/github/src/clojure/halloway
  haskell=~/github/src/haskell
   python=~/github/src/python
      sys=~/github/sys
+# 特定のファイルのパスをここで定義する。
    ejdic=~/github/sys/ejdic-hand-utf8.txt
    edict=~/github/sys/edict
 html() {
