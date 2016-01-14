@@ -1,5 +1,4 @@
 #!/usr/bin/env runhaskell
-import qualified Data.List
 main = do
   interact $ getString . map read . words
   where
