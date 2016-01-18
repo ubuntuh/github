@@ -1,3 +1,4 @@
+// Accepted.
 #include <cstdio>
 
 int N; // [1, 10000]
@@ -21,4 +22,5 @@ int main() {
        }
     }
     printf("%d\n", numCrashes);
+    return 0;
 }

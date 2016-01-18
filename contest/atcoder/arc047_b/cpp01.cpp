@@ -1,14 +1,14 @@
 // とりあえず、例の入力程度なら、総当たり的な方法で答えが得られそうなので、総当たり的かつ雑な方法で実装し、submit してみた。
-// ごく少数、序盤の 8 個のテストで Accepted を得たが、他は、Time Limit Exceeded、Runtime Error、Wrong Answer がバラバラに混ざった結果であった。
-// なお、N が 1 であるテストにのみ正常に出力するプログラムを submit してみたところ、subtask1_* の 1, 2, 5, 6 のみ Accepted であった。他は Wrong Answer と Runtime Error が半々くらいであった。要するに、元のプログラムも、N が 1 の場合の正解がほとんどだった。
+// 16 / 49 のテストで Accepted を得たが、他は、Time Limit Exceeded であった。TLE 以外は AC であったことで、基本的な考え方は間違っていないと考えられた。
+// なお、N が 1 であるテストにのみ正常に出力するプログラムを submit してみたところ、subtask1_* の 1, 2, 5, 6 のみ Accepted であった。
 #include <algorithm>
 #include <climits>
 #include <cstdio>
 using namespace std;
 
-int N; // [1, 10000]
-int x[10000];
-int y[10000];
+int N; // [1, 100000]
+int x[100000];
+int y[100000];
 int xMin = INT_MAX;
 int xMax = INT_MIN;
 int yMin = INT_MAX;
