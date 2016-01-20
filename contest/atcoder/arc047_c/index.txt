@@ -1,0 +1,45 @@
+N = 1 iff
+
+Word #1 = 1
+
+N = 2 iff
+
+Word #1 = 1 2
+Word #2 = 2 1
+
+N = 3 iff
+
+Word #1 = 1 2 3
+Word #2 = 1 3 2
+Word #3 = 2 1 3
+Word #4 = 2 3 1
+Word #5 = 3 1 2
+Word #6 = 3 2 1
+
+N = 4 iff
+
+Word #1 = 1 2 3 4
+Word #2 = 1 2 4 3
+Word #3 = 1 3 2 4
+Word #4 = 1 3 4 2
+Word #5 = 1 4 2 3
+Word #6 = 1 4 3 2
+Word #7 = 2 1 3 4
+Word #8 = 2 1 4 3
+Word #9 = 2 3 1 4
+Word #10 = 2 3 4 1
+Word #11 = 2 4 1 3
+Word #12 = 2 4 3 1
+Word #13 = 3 1 2 4
+Word #14 = 3 1 4 2
+Word #15 = 3 2 1 4
+Word #16 = 3 2 4 1
+Word #17 = 3 4 1 2
+Word #18 = 3 4 2 1
+Word #19 = 4 1 2 3
+Word #20 = 4 1 3 2
+Word #21 = 4 2 1 3
+Word #22 = 4 2 3 1
+Word #23 = 4 3 1 2
+Word #24 = 4 3 2 1
+

@@ -67,7 +67,7 @@ int main() {
     IntListList words;
     IntList word;
     getWords(&words, &word, &chars);
-    // print(&words, wordNum);
+    print(&words, wordNum);
 
     long wordNumTemp = 1;
     IntList *ansWord;
