@@ -17,6 +17,6 @@ The transition from one state to the next is not necessarily deterministic; some
 The concept of algorithm has existed for centuries, however a partial formalization of what would become the modern algorithm began with attempts to solve the Entscheidungsproblem (the "decision problem") posed by David Hilbert in 1928.  
 アルゴリズムという概念は数世紀前から存在したが、後に現代のアルゴリズムとなる部分的な形式化は、David Hilbert によって 1928 年に提出された決定問題を解こうとする試みとともに始まった。  
 Subsequent formalizations were framed as attempts to define "effective calculability" or "effective method"; those formalizations included the Godel-Herbrand-Kleene recursive functions of 1930, 1934 and 1935, Alonzo Church's lambda calculus of 1936, Emil Post's "Formulation 1" of 1936, and Alan Turing's Turing machines of 1936-7 and 1939.  
-続いて起こった形式化は、「効果的な計算可能性」あるいは「効果的な方法」を定義しようという試みとして形作られた。そのような形式化の中には、1930、1934、1935 年のゲーデル、エルブラン、クリーネの再帰関数、1936 年のアロンゾ・チャーチによるラムダ計算、1936 年のエミール・ポストによる「Formulation 1」、1936、7 年と 1939 年のアラン・チューリングによるチューリングマシンが含まれる。  
+続いて起こった形式化は、「有効な計算可能性」あるいは「有効な方法」を定義しようという試みとして形作られた。そのような形式化の中には、1930、1934、1935 年のゲーデル、エルブラン、クリーネの再帰関数、1936 年のアロンゾ・チャーチによるラムダ計算、1936 年のエミール・ポストによる「Formulation 1」、1936、7 年と 1939 年のアラン・チューリングによるチューリングマシンが含まれる。  
 Giving a formal definition of algorithms, corresponding to the intuitive notion, remains a challenging problem.  
 アルゴリズムらに形式的な定義を与えることは、直観的な記法に相当し、困難な問題でありつづけている。
