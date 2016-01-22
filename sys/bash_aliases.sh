@@ -17,6 +17,7 @@ export HISTFILE=~/.bash_history2
 export HISTFILESIZE=
 export HISTSIZE=
 # コマンド履歴に日時も記録する。また、history コマンドを使用した際にその日時を整形表示する。フォーマットは strftime 形式。
+# ただしそもそも、複数のターミナルを使った場合それぞれ終了時に書き込むため、履歴の日時は必ずしも整列されない。
 export HISTTIMEFORMAT='(%F %a %T) '
 export MANPATH=~/github/sys/man:$MANPATH
 export INFOPATH=~/github/sys/info:$INFOPATH
