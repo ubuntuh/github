@@ -87,7 +87,10 @@
 (set-frame-parameter nil 'alpha 85)
 (add-to-list 'default-frame-alist '(alpha . 85))
 
-(desktop-save-mode 1)
+(require 'saveplace)
+(setq-default save-place t)
+;; (desktop-save-mode 1)
+;; メモ。can't guess python-indent-offset
 ;; いわゆる「最近使ったファイル」に関する機能を有効にします。
 ;; (require 'recentf)
 ;; (recentf-mode 1)
