@@ -7,6 +7,7 @@
 * http://blog.livedoor.jp/hiroumauma/archives/1385003.html
 * http://capm-network.com/?tag=GAS
 * http://www.cs.is.noda.tus.ac.jp/~mune/master/09/x86.pdf
+* http://wisdom.sakura.ne.jp/programming/asm/index.html
 
 ### 2016-02-01 Mon
 
@@ -30,3 +31,33 @@
 * 機能としてはほとんど同等であるらしい。
 * オプションを渡すのは面倒なので、AT&T syntax を贔屓して使っていけばいいのかなと思う。
 * 読む際には、ストレスなくどちらも読めることが理想的なのだろう。
+
+# objdump
+
+* objdump コマンドが、逆アセンブルのための標準的なコマンドであるらしい。
+* objdump -d a.out や objdump -S a.out として逆アセンブルできる。
+* 例えば gcc -g helloworld.c などとコンパイルしておくことで、実行ファイルに、デバッグのための情報が追加され、objdump -S a.out とした時に並列に表示してもらえる。また、objdump -S -l a.out とすると、ソースファイルとその行数が表示される。
+* 特定の関数のみ逆アセンブルする簡単な方法はない。
+
+# gcc -m32
+
+* 64 bit の環境で 32 bit のためのアセンブリをそのままアセンブルしようとすると、アセンブルエラーになることが多い。
+* gcc -m32 helloworld.s とすればよい。
+* しかし、デフォルトでは、自分の環境のためのライブラリしかインストールされていないことが普通であり、そのためにこれに失敗する。
+* sudo apt-get install gcc-multilib とすればよい。
+* こうすることで、64 bit 環境でも 32 bit のためのアセンブリを、-m32 オプションを使ってアセンブルできるようになる。
+
+# 64 bit アセンブリ
+
+* 64 bit のアセンブリというのはあまり一般的でないっぽい。
+* 多くの場合必要なかったり、実行ファイルが大きくなったりするようである。
+
+# 呼出規約
+
+* calling convention というものがある。
+* 32 bit のシステムコールを呼び出す際には　eax に関数の番号、ebx、ecx、edx に引数を入れて 0x80 で inturrupt すればよいらしい。
+* 一方で、64 bit の場合は、もう少し覚えにくい。Wikipedia の x86 calling convention にあるように、次のような約束になっている。
+* The first six integer or pointer arguments are passed in registers RDI, RSI, RDX, RCX, R8, and R9, while XMM0, XMM1, XMM2, XMM3, XMM4, XMM5, XMM6 and XMM7 are used for floating point arguments. For system calls, R10 is used instead of RCX. As in the Microsoft x64 calling convention, additional arguments are passed on the stack and the return value is stored in RAX.
+* RDI、RSI、RDX、RCX、R8、R9 というのはつまり、R7、R6、R2、R1、R8、R9 である。システムコールについては R1 ではなく R10 が使われるということになる。少し規則性があるが、どちらにせよわかりにくい。
+* 汎用レジスタの名前には意味があるのだろうか？
+* R0 から R7 までは名前があって、公式ドキュメントでもそちらが使われているらしい。また、GNU Assembler でアセンブルする際も、RAX を R0 と呼ぶと受けつけてくれない。
