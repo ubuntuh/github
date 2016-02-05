@@ -3,9 +3,6 @@
 alias cp="cp --interactive --verbose"
 alias mv="mv --interactive --verbose"
 alias rm="rm --interactive --verbose"
-alias e="emacs --no-window-system"
-alias emacs="emacs --no-window-system"
-alias emacsw="/usr/bin/emacs"
 alias open="xdg-open"
 # 連続して同一のコマンドが実行された場合にコマンド履歴に記録しない、空白で始まるコマンドは記録しない、といった機能を無効にする。
 unset HISTCONTROL
@@ -63,6 +60,27 @@ html() {
 }
 a() {
     ./a.out "$@"
+}
+gcc_args=
+c() {
+    if [ $# -ne 0 ]; then
+        gcc_args=$*
+    fi
+    gcc $gcc_args    
+}
+gpp_args=
+d() {
+    if [ $# -ne 0 ]; then
+        gpp_args=$*
+    fi
+    g++ $gpp_args    
+}
+emacs_args=
+e() {
+    if [ $# -ne 0 ]; then
+        emacs_args=$*
+    fi
+    emacs --no-window-system $emacs_args
 }
 ej() {
     grep "$1" $ejdic
