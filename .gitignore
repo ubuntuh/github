@@ -12,6 +12,8 @@ bin/
 *gitignored*
 # Haskell
 *.hi
+# IPython Notebook
+.ipynb_checkpoints/
 # Java
 .metadata
 # C, etc.

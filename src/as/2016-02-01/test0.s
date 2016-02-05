@@ -1,28 +1,4 @@
 	.file	"test0.c"
-	.text
-	.globl	f
-	.type	f, @function
-f:
-.LFB0:
-	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	movl	$10, -12(%rbp)
-	movl	$20, -8(%rbp)
-	movl	-12(%rbp), %edx
-	movl	-8(%rbp), %eax
-	addl	%edx, %eax
-	movl	%eax, -4(%rbp)
-	nop
-	popq	%rbp
-	.cfi_def_cfa 7, 8
-	ret
-	.cfi_endproc
-.LFE0:
-	.size	f, .-f
 	.section	.rodata
 .LC0:
 	.string	"%d\n"
@@ -30,7 +6,7 @@ f:
 	.globl	main
 	.type	main, @function
 main:
-.LFB1:
+.LFB0:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -49,7 +25,7 @@ main:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE1:
+.LFE0:
 	.size	main, .-main
 	.ident	"GCC: (Ubuntu 5.2.1-22ubuntu2) 5.2.1 20151010"
 	.section	.note.GNU-stack,"",@progbits
