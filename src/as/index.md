@@ -1,13 +1,17 @@
 # as
 
 * https://en.wikipedia.org/wiki/Calling_convention
+* https://en.wikibooks.org/wiki/X86_Assembly
 * https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture
+* https://en.wikibooks.org/wiki/Category:X86_Disassembly
 * http://stackoverflow.com/questions/8510333/x86-64-assembly-linux-system-call-confusion
 * http://www.mztn.org/index.html
 * http://blog.livedoor.jp/hiroumauma/archives/1385003.html
 * http://capm-network.com/?tag=GAS
 * http://www.cs.is.noda.tus.ac.jp/~mune/master/09/x86.pdf
 * http://wisdom.sakura.ne.jp/programming/asm/index.html
+* http://homepage1.nifty.com/herumi/
+* http://www.ibm.com/developerworks/jp/linux/library/l-gas-nasm.html
 
 ### 2016-02-01 Mon
 
@@ -16,6 +20,7 @@
 * Ubuntu でアセンブリをコンパイル（アセンブル）するためには、拡張子 .s としたテキストファイルにアセンブリコードを記述し、gcc helloworld.s などとしてコンパイルすればよい。
 * gcc は c 言語のプログラムをコンパイルする際にも使われるコマンドであるが、与えられたファイルの拡張子から、実際にどのツールでコンパイルするか自動的に推定している。アセンブリをコンパイルする際には、gcc の背後で、as というファイル名のプログラムが動作している。これは正式には、GNU Assembler と呼ばれるプログラムである。
 * Linux のカーネルをアセンブルする際にも、as (GNU Assembler) は使われている。
+* gcc で C のプログラムをコンパイルする時も、一旦 アセンブリが生成されて、as でアセンブルされているらしい。gcc helloworld.c とするのは、gcc -S helloworld.c としてから gcc helloworld.s とするのと同じらしい。
 
 # コメント
 
