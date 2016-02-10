@@ -48,6 +48,7 @@ int main() {
         if (time <= q) {
             totalTime += time;
             printf("%s %d\n", name, totalTime);
+            delete process;
         } else {
             process->time -= q;
             totalTime += q;
