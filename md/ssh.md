@@ -17,6 +17,7 @@
 * SSH では、client と server という概念が用いられる。
 * SSH client は、sk と pk を作成し、pk を server に知らしめる。知らしめるというのは具体的には、pk を server に送信し、server の内部に保持する。
 * しかし、client に sk を平文で保存しておくことは危険であるから、暗号化して保存しておく。このための鍵を passphrase と言う。
+* 公開鍵のハッシュ値を fingerprint （指紋）と言う。
 
 ## ssh-keygen
 
@@ -42,8 +43,14 @@
 
 ## known_hosts
 
-* ~/.ssh/known_hosts というファイルには、ホスト認証のための情報が記録される。
+* SSL サーバの /etc/ssh/ssh\_host\_rsa\_key.pub といったファイルに SSL サーバの公開鍵が保持される。
+* SSL クライアントでは、ホスト認証のため、~/.ssh/known_hosts というファイルに、SSL サーバの公開鍵が保存される。
 * 例えば GitHub の場合、What are GitHub's SSH key fingerprints? というページがあって、GitHub の指紋が公開されている。
+* HashKnownHosts という設定値が yes になっていると、ファイル known_hosts の情報はハッシュ値であって、人間が直接理解できない。
+* 特定のユーザのためではない、システム全体についての、SSL クライアントとしての設定は、/etc/ssh/ssh_config というファイルにある。ここで HashKnownHosts が yes になっている。
+* ユーザ固有の設定ファイルは、~/.ssh/config として作れる。ここで例えば HashKnownHosts を no に上書きすれば、それが優先される。
+* HashKnownHosts を no にする短所は、known_hosts を見られた際に、アクセス先がわかりやすいことである。しかしこれは、致命的に危険なわけではない。また、yes にしてあっても、総当り攻撃が可能である。
+* ssh-keygen -lf ~/.ssh/known\_hosts とすると、known\_hosts に記録されている公開鍵らの指紋を見ることができる。
 
 ## GitHub
 
