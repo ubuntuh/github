@@ -18,7 +18,19 @@
 * -t オプションでの選択肢は、dsa、ecdsa、ed25519、rsa、rsa1 である。ここで sa1 は SSH プロトコルのバージョン 1 のものであり、他はバージョン 2 のものである。
 * 作られた鍵は普通、~/.ssh/ に置かれる。暗号方式を rsa にした場合、passphrase で暗号化された sk が ~/.ssh/id\_rsa ファイルに記録され、pk は ~/.ssh/id\_rsa.pub ファイルに記録される。
 * サーバ側では、~/.ssh/authorized\_keys に、クライアントらの id\_rsa.pub などの内容が保持される。
+* デフォルトのコメントもつけたくない場合には、ssh-keygen -C "" としてもいい。
 * 特定の公開鍵の指紋を見るには、ssh-keygen -lf id\_rsa.pub などとする。
 * md5 形式で見たい場合には、ssh-keygen -lf id\_rsa.pub -E md5 などとする。
-* testtest
 
+## ssh-agent
+
+* ssh を使うたびにユーザが passphrase を入力するのは煩わしい。そのために、ssh-agent という機能がある。
+* ssh-agent は自動的に起動され、そのプロセスのメモリ空間に秘密情報を保護している。
+* ssh-agent に登録されている秘密鍵は、ssh-add -l で表示できる。
+* ssh-keygen で作成した鍵がここで表示されるのは、単に ~/.ssh/ にあるものを反映しているにすぎない。不要になって削除したいものがあるなら、~/.ssh/id\_rsa などを削除すれば、こちらにも表示されなくなる。
+* ssh-agent は、環境変数 SSH\_AUTH\_SOCK の設定に使われる。SSH\_AGENT\_PID も設定されることもある。
+
+## known_hosts
+
+* ~/.ssh/known_hosts というファイルには、ホスト認証のための情報が記録される。
+* 例えば GitHub の場合、What are GitHub's SSH key fingerprints? というページがあって、GitHub の指紋が公開されている。
