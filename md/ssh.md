@@ -39,4 +39,4 @@
 
 * ~/.ssh/known_hosts というファイルには、ホスト認証のための情報が記録される。
 * 例えば GitHub の場合、What are GitHub's SSH key fingerprints? というページがあって、GitHub の指紋が公開されている。
-* testtest
+* test
