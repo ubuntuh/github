@@ -3,6 +3,7 @@
 - [Book](book/index.md)
 - [ReText](retext.md)
 - [Sample](sample.md)
+- test
 
 ### 2015-11-19 Thu
 
