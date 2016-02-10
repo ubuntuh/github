@@ -20,4 +20,5 @@
 * サーバ側では、~/.ssh/authorized\_keys に、クライアントらの id\_rsa.pub などの内容が保持される。
 * 特定の公開鍵の指紋を見るには、ssh-keygen -lf id\_rsa.pub などとする。
 * md5 形式で見たい場合には、ssh-keygen -lf id\_rsa.pub -E md5 などとする。
+* test
 
