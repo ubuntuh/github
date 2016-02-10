@@ -13,7 +13,11 @@
 * SSH では、client と server という概念が用いられる。
 * SSH client は、sk と pk を作成し、pk を server に知らしめる。知らしめるというのは具体的には、pk を server に送信し、server の内部に保持する。
 * しかし、client に sk を平文で保存しておくことは危険であるから、暗号化して保存しておく。このための鍵を passphrase と言う。
+
+## ssh-keygen
+
 * ssh-keygen コマンドによって、sk と pk を作ることができる。
+* ssh-keygen コマンドは、内部で擬似乱数を生成して sk と pk を作る。
 * ssh-keygen -t rsa -b 4096 -C "your_email@example.com" などとする。-t オプションは暗号方式を、-b は鍵の大きさを、-C オプションではコメントを指定している。
 * -t オプションでの選択肢は、dsa、ecdsa、ed25519、rsa、rsa1 である。ここで sa1 は SSH プロトコルのバージョン 1 のものであり、他はバージョン 2 のものである。
 * 作られた鍵は普通、~/.ssh/ に置かれる。暗号方式を rsa にした場合、passphrase で暗号化された sk が ~/.ssh/id\_rsa ファイルに記録され、pk は ~/.ssh/id\_rsa.pub ファイルに記録される。
@@ -21,6 +25,7 @@
 * デフォルトのコメントもつけたくない場合には、ssh-keygen -C "" としてもいい。
 * 特定の公開鍵の指紋を見るには、ssh-keygen -lf id\_rsa.pub などとする。
 * md5 形式で見たい場合には、ssh-keygen -lf id\_rsa.pub -E md5 などとする。
+* ssh git@github.com として接続のテストができる。
 
 ## ssh-agent
 
@@ -34,3 +39,4 @@
 
 * ~/.ssh/known_hosts というファイルには、ホスト認証のための情報が記録される。
 * 例えば GitHub の場合、What are GitHub's SSH key fingerprints? というページがあって、GitHub の指紋が公開されている。
+* testtest
