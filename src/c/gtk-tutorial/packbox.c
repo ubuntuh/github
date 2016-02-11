@@ -44,14 +44,7 @@ static GtkWidget* make_box(gboolean homogeneous, gint spacing, gboolean expand, 
 }
 
 int main(int argc, char** argv) {
-    //GtkWidget* window, button, box1, box2, separator, label, quitbox;
-    GtkWidget* window;
-    GtkWidget* button;
-    GtkWidget* box1;
-    GtkWidget* box2;
-    GtkWidget* separator;
-    GtkWidget* label;
-    GtkWidget* quitbox;
+    GtkWidget *window, *button, *box1, *box2, *separator, *label, *quitbox;
     int which;
     gtk_init(&argc, &argv);
     if (argc != 2) {
