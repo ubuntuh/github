@@ -1,0 +1,4 @@
+1. AtCoder Beginner Contest 001 解説 AtCoder 株式会社 代表取締役 高橋 直大
+2. コンテストデータ • こちらより入出力のダウンロードが可能 です – http://www.chokudai.info/atcoder/ABC001.rar – 個人サーバーですので、不安定な可能性があ ります。
+3. A問題概要 • 整数が2つ与えられます。引き算した結果 を求めなさい。 – 整数の値は、0以上2000以下
+4. A問題 解説 • まず、2つの整数を、標準入力から読み取 る – C言語ならscanf, C++ならcinなど – 解らない場合は、practiceから各言語の例が参 照できます。 – http://practice.contest.atcoder.jp/tasks/practice_ 1 • 読み取った２つの式を引き算 • 出てきた値を出力する – こちらもわからない場合はpracticeから確認
