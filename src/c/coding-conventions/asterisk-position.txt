@@ -1,0 +1,22 @@
+# asterisk position
+
+### 2016-02-29 Mon
+
+- C 言語において例えば int へのポインタという型を表したい時、次のような複数の方法がある。
+- int *i;
+- int*i;
+- int * i;
+- int* i;
+- 型が、int へのポインタであるという意味では、int* という表示が自然に思える。しかし、C 言語において、int* i, j; というのは、int *i, j; という意味であり、int へのポインタ i と、int 型 j を表す。その意味で、int* という形は好ましくない。
+- int *i; というスタイルが、圧倒的に一般的であり、これを使うべきであるようである。
+- しかし、1 行に複数宣言した場合の混乱は、その場合に限られる。例えば、式の中で sizeof(int *) と書くより、sizeof(int*) と書くほうがシンプルだろう。また、void f(char **, char **, char **); とプロトタイプを書くより、void f(char**, char**, char**); と書いたほうがシンプルに思える。
+- ゆえに、int *i という形を常に用いるべき、というわけでもないようである。
+- Linus Torvalds による (?) Linux kernel coding style には、次のように書かれている。
+- It's also important to comment data, whether they are basic types or derived types.  To this end, use just one data declaration per line (no commas for multiple data declarations).  This leaves you room for a small comment on each item, explaining its use.
+- なので、1 行で複数の変数を宣言しないことをもし徹底するなら、int* という形式の紛らわしさという論点も消滅する。
+- Linux kernel coding style というのは、長期的な保守性を極限的に重視したドメインであると考えられる。
+- なおそこでは、次のように GNU coding standards というものに否定的であるが、K&R というものについては肯定的であるようである。
+- First off, I'd suggest printing out a copy of the GNU coding standards, and NOT read it.  Burn them, it's a great symbolic gesture.
+- Appendix I: References の第一に示されている K&R の The C Programming Language, Second Edition では、int *i という形式であり、書籍であることもあるかもしれないが、1 行で複数の変数を宣言することは普通にしている。
+- 一般的な実用性を考えると、1 行で複数の変数を宣言することを全面的に廃止するというのは、おそらく現実的ではない。
+- よって、変数名も伴う場合には int *i などとし、型のみ示すところでは int* という形を用いることが、妥当な落とし所であると考えられる。
