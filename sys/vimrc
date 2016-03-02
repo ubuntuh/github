@@ -16,7 +16,7 @@ set autoindent
 set display+=lastline
 " 新たにタブキーが押された際、タブ文字ではなく（複数の）空白文字を入力します。
 " タブ文字を入力したい場合には、Ctrl+V, Tab で入力できます。
-set expandtab
+" set expandtab
 " status line を常に表示します。
 set laststatus=2
 " 空白文字などを可視化します。
@@ -30,14 +30,14 @@ set number
 set scrolloff=999
 set shellcmdflag=-ic
 " インデントに用いられる空白文字の数を設定します。
-set shiftwidth=4
+set shiftwidth=8
 set showcmd
 set smartindent
 " 行頭の端数なインデントにおいてタブキーを入力した際、端数にならないようにします。
 set smarttab
 " 指定した数の空白文字を一つのタブ文字のように操作します。バックスペースキーについて有効です。
-set softtabstop=4
+set softtabstop=8
 set statusline=%F%M%=L%l/%L\ 0x%04B
 " タブ文字がいくつの空白文字として表示されるか設定します。
-set tabstop=4
+set tabstop=8
 

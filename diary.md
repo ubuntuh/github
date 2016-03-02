@@ -8,3 +8,4 @@ It was a dark and stormy night; the rain fell in torrents, except at occasional 
 - C++ is a horrible language. などといった内容の、Linus Torvalds による文章がある。
 - https://en.wikipedia.org/wiki/Information_algebra
 - https://en.wikipedia.org/wiki/Data_model
+- Joe Celko
