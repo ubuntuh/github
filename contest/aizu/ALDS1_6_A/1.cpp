@@ -1,10 +1,11 @@
+// Accepted.
 #include <cstdio>
 
 int n;
 
 void CountingSort(int *A, int *B, int k)
 {
-	int *C = new int[2000000];
+	int *C = new int[10001];
 	for (int i = 0; i <= k; ++i)
 		C[i] = 0;
 	for (int j = 1; j <= n; ++j)
