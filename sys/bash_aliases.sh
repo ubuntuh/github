@@ -63,11 +63,28 @@ html() {
 a() {
     ./a.out "$@"
 }
+two_asm_args=
+2asm() {
+    if [ $# -ne 0 ]; then
+	two_asm_args=$*
+    fi
+    echo gcc -m32 -O0 -S -fno-asynchronous-unwind-tables $two_asm_args
+    gcc -m32 -O0 -S -fno-asynchronous-unwind-tables $two_asm_args
+}
+asm_two_args=
+asm2() {
+    if [ $# -ne 0 ]; then
+	asm_two_args=$*
+    fi
+    echo gcc -m32 -O0 -g $asm_two_args
+    gcc -m32 -O0 -g $asm_two_args
+}
 gcc_args=
 c() {
     if [ $# -ne 0 ]; then
         gcc_args=$*
     fi
+    echo gcc $gcc_args    
     gcc $gcc_args    
 }
 gpp_args=
@@ -75,6 +92,7 @@ d() {
     if [ $# -ne 0 ]; then
         gpp_args=$*
     fi
+    echo g++ $gpp_args    
     g++ $gpp_args    
 }
 emacs_args=
@@ -82,6 +100,7 @@ e() {
     if [ $# -ne 0 ]; then
         emacs_args=$*
     fi
+    echo emacs --no-window-system $emacs_args
     emacs --no-window-system $emacs_args
 }
 ej() {

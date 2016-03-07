@@ -1,3 +1,5 @@
+// gcc example.cpp -lncursesw
+// 日本語を使う場合には -lncurses ではなく -lncursesw を使うらしい。あと、setlocale(LC_ALL, "");
 #include <ncurses.h>
 #include <locale.h>
 

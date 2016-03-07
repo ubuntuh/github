@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+#define MAX 100005
+#define NIL -1
+
+struct Node { int p, l, r; };	// parent, left（最も左の子）, right（すぐ右の兄弟）.
+Node T[MAX];	// 全てのノードを表します。
+int n, D[MAX];	// ノードの数、全てのノードそれぞれの深さ。
+
+void print(int u)
+{
+	int i, c;
+	cout << "node " << u << ": ";
+	cout << "parent = " << T[u].p << ", ";
+	cout << "depth = " << D[u] << ", ";
+
+	if (T[u].p == NIL) cout << "root, ";	// 親が無ければ根である。
+	else if (T[u].l == NIL) cout << "leaf, ";	// 最も左の子が無ければ葉である。
+	else cout << "internal node, ";	// そうでなければ内部ノードである。
+
+	cout << "[";
+	for (i = 0, c = T[u].l; c != NIL; i++, c = T[c].r) {	// ノードuの全ての子について処理します。
+		if (i) cout << ", "; // iが0でないならカンマを出力します。
+		cout << c;
+	}
+	cout << "]" << endl;
+}
+
+// 再帰的に深さを求める
+// ノードID uとその深さpを与えられて、そのノード自身と、その右の兄弟らと、自分自身の子供達について、再帰的に深さを設定します。O(n)。
+// int rec(int u, int p)
+void rec(int u, int p) // 返り値は無いようです。
+{
+	D[u] = p;
+	if (T[u].r != NIL) rec(T[u].r, p);	// 右の兄弟に同じ深さを設定
+	if (T[u].l != NIL) rec(T[u].l, p + 1);	// 最も左の子に自分の深さ + 1 を設定
+}
+
+int main()
+{
+	int i, j, d, v, c, l, r;
+	cin >> n;	// ノード数を獲得しました。
+	for (i = 0; i < n; i++) T[i].p = T[i].l = T[i].r = NIL;	// 全てのノードの情報を初期化します。O(n)。
+	for (i = 0; i < n; i++) {
+		cin >> v >> d;	// ノードIDとdegree（子の数）を得ました。
+		for (j = 0; j < d; j++) {	// 全ての子について処理します。
+			cin >> c;	// c はある子のノードIDです。
+			if (j == 0) T[v].l = c;	// ノードvの最も左の子はcです。
+			else T[l].r = c;	// すぐ左の兄弟lのすぐ右の兄弟はcです。
+			l = c;		// 次のループにおいてlは左の兄弟です。
+			T[c].p = v;	// ノードcの親はvです。
+		}
+	}
+	for (i = 0; i < n; i++) {	// 根を探します。O(n)。
+		if (T[i].p == NIL) r = i;	// 根のIDを得ました。
+	}
+	rec(r, 0);	// 深さを計算しておきます。
+	for (i = 0; i < n; i++) print(i); // 全てのノードについて出力します。
+	return 0;
+}

@@ -48,7 +48,8 @@
 
 ;; デフォルトでは markdown 文書を扱えないので、広く使われている markdown-mode.el を利用して、扱えるようにします。markdown-mode.el は、キーワードを強調表示するのみならず、プレビューの表示など多くの機能を持っています。
 ;; なおそのためには、sudo apt-get install emacs-goodies-el などとして markdown-mode.el をインストールする必要があります。
-;; markdown-mode で、リストを記述する際には、改行の際に M-RET とすることが便利です。
+;; markdown-mode で、リストを記述する際には、改行の際に M-RET とすることが便利です。しかしこれは emacs -nw では使えないようだ。
+;; emacs -nw で markdown で項目を折りたたむには、Tab ではなく Shift+Tab を押せばいい。Shift+Tab は backtab というものであるようである。
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -108,6 +109,7 @@
 		   (define-key c-mode-map (kbd "DEL") 'delete-backward-char)
 		   (fci-mode 1)
 		   (setq c-hungry-delete-key t)
+		   (setq c-tab-always-indent nil)
 		   ;; (setq c-tab-always-indent nil) ; ポイントが行頭にない際は、インデントのためではなくタブを入力するためにタブキーを使うこともできます。
 		   )
 		 )

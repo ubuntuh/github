@@ -10,3 +10,7 @@ It was a dark and stormy night; the rain fell in torrents, except at occasional 
 - https://en.wikipedia.org/wiki/Data_model
 - Joe Celko
 - When using CentOS on VirtualBox on Ubuntu, you can use RightCtrl+F1 instead of Ctrl+Alt+F1. X Window System runs at Ctrl+Alt+F7 on Ubuntu, but at RightCtrl+F1 on CentOS. For tty, you can use Ctrl+Alt+F1 on Ubuntu and RightCtrl+F2 on CentOS (on VirtualBox).
+- 1977 - John Backus - Can Programming Be Liberated from the von Neumann Style? A Functional Style and Its Algebra of Programs
+- John Hughes - Why Functional Programming Matters?
+- Paul Hudak - A Gentle Introduction to Haskell 98
+- 高橋哲、他 - O'Reilly - Binary Hacks

@@ -1,4 +1,4 @@
-# as
+# Gnu Assembler
 
 * https://en.wikipedia.org/wiki/Calling_convention
 * https://en.wikibooks.org/wiki/X86_Assembly

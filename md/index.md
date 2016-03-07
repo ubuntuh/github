@@ -10,7 +10,8 @@
 - GitHub における Markdown 文書の表示は美しい。
 - GitHub による (?) Grip を用いると、ローカルなファイルを（コミットせずとも） GitHub 同様に美しく表示できるが、オンラインでないと使えない。ただしローカルリンクでの移動は（GitHub 同様、）できる。
 - Geany において geany-plugin-markdown を用いるという方法がある。しかしローカルリンクでの移動はできないようであった。
-- Firefox において Markdown Viewer by Thiht というものがあるが、ローカルリンクでの移動はできないようであった。  
+- Firefox において Markdown Viewer by Thiht というものがあるが、ローカルリンクでの移動はできないようであった。
+- markdown コマンドを使って markdown example.md > example.html などとすると、HTML に変換できる。
 
 #### Markdown を用いるメリットとは？
 
