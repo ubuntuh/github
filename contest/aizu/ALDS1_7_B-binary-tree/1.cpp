@@ -1,3 +1,4 @@
+// Accepted.
 #include <algorithm>
 #include <cstdio>
 using namespace std;
@@ -26,6 +27,7 @@ int getDegree(int nodeId)	// O(1).
 	return degree;
 }
 
+// depth については、キャッシュを持ち根から計算することで、それぞれの getDepth() を O(1) にする実装もある。
 int getDepth(int nodeId)	// O(log(n)).
 {
 	int depth = 0;
