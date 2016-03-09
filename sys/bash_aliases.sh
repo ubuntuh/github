@@ -49,85 +49,92 @@ halloway=~/github/src/clojure/halloway
  haskell=~/github/src/haskell
   python=~/github/src/python
      sys=~/github/sys
+     tmp=~/github/tmp
 # 特定のファイルのパスをここで定義する。
    ejdic=~/github/sys/ejdic-hand-utf8.txt
    edict=~/github/sys/edict
 html() {
-    if [ $# -eq 0 ]
-    then
-        ls "$git/sys/html"
-    else
-        xdg-open "$git/sys/html/$1.html"
-    fi
+	if [ $# -eq 0 ]; then
+		ls "$git/sys/html"
+	else
+		if [ -e "$git/sys/html/$1.html" ]; then
+			xdg-open "$git/sys/html/$1.html"
+		elif [ -e "$git/sys/html/$1/index.html" ]; then
+			xdg-open "$git/sys/html/$1/index.html"
+		else
+			echo "Not Found: $git/sys/html/$1.html"
+			echo "Not Found: $git/sys/html/$1/index.html"
+		fi
+	fi
 }
 a() {
-    ./a.out "$@"
+	./a.out "$@"
 }
 two_asm_args=
 2asm() {
-    if [ $# -ne 0 ]; then
-	two_asm_args=$*
-    fi
-    echo gcc -m32 -O0 -S -fno-asynchronous-unwind-tables $two_asm_args
-    gcc -m32 -O0 -S -fno-asynchronous-unwind-tables $two_asm_args
+	if [ $# -ne 0 ]; then
+		two_asm_args="$@"
+	fi
+	echo gcc -m32 -O0 -S -fno-asynchronous-unwind-tables $two_asm_args
+	gcc -m32 -O0 -S -fno-asynchronous-unwind-tables $two_asm_args
 }
 asm_two_args=
 asm2() {
-    if [ $# -ne 0 ]; then
-	asm_two_args=$*
-    fi
-    echo gcc -m32 -O0 -g $asm_two_args
-    gcc -m32 -O0 -g $asm_two_args
+	if [ $# -ne 0 ]; then
+		asm_two_args="$@"
+	fi
+	echo gcc -m32 -O0 -g $asm_two_args
+	gcc -m32 -O0 -g $asm_two_args
 }
 gcc_args=
 c() {
-    if [ $# -ne 0 ]; then
-        gcc_args=$*
-    fi
-    echo gcc $gcc_args    
-    gcc $gcc_args    
+	if [ $# -ne 0 ]; then
+		gcc_args="$@"
+	fi
+	echo gcc $gcc_args
+	gcc $gcc_args
 }
 gpp_args=
 d() {
-    if [ $# -ne 0 ]; then
-        gpp_args=$*
-    fi
-    echo g++ $gpp_args    
-    g++ $gpp_args    
+	if [ $# -ne 0 ]; then
+		gpp_args="$@"
+	fi
+	echo g++ $gpp_args
+	g++ $gpp_args
 }
 emacs_args=
 e() {
-    if [ $# -ne 0 ]; then
-        emacs_args=$*
-    fi
-    echo emacs --no-window-system $emacs_args
-    emacs --no-window-system $emacs_args
+	if [ $# -ne 0 ]; then
+	emacs_args="$@"
+	fi
+	echo emacs --no-window-system $emacs_args
+	emacs --no-window-system $emacs_args
 }
 ej() {
-    grep "$1" $ejdic
+	grep "$*" $ejdic
 }
 je() {
-    grep "$1" $edict
+	grep "$*" $edict
 }
 google() {
-    xdg-open "https://www.google.com/search?q=$*"
+	xdg-open "https://www.google.com/search?q=$*"
 }
 google-en() {
-    xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=$*"
+	xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=$*"
 }
 google-i() {
-    xdg-open "https://www.google.com/search?tbm=isch&q=$*"
+	xdg-open "https://www.google.com/search?tbm=isch&q=$*"
 }
 news() {
-    xdg-open "https://news.google.com/?ned=us"
+	xdg-open "https://news.google.com/?ned=us"
 }
 youtube() {
-    xdg-open "https://www.youtube.com/results?search_query=$*"
+	xdg-open "https://www.youtube.com/results?search_query=$*"
 }
 wikipedia() {
-    xdg-open "https://en.wikipedia.org/wiki/$1"
+	xdg-open "https://en.wikipedia.org/wiki/$*"
 }
 weblio() {
-    xdg-open "http://ejje.weblio.jp/content/$1"
+	xdg-open "http://ejje.weblio.jp/content/$*"
 }
 

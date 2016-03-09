@@ -38,6 +38,7 @@
 (setq default-tab-width 8) ; 1 つのタブの幅は空白 8 つ分とします。
 (setq tab-stop-list '(8 16 24 32 40 48 56 64))
 ;; (setq-default indent-tabs-mode nil) ; タブ文字ではなく空白文字でインデントをすることもできます。
+(setq-default indent-tabs-mode t)
 
 (require 'fill-column-indicator) ; 80 文字の位置を表示します。
 (setq fci-handle-truncate-lines nil) ; fill-column-indicator.el が、truncate-lines を t にすることをやめさせます。
@@ -120,6 +121,14 @@
 		  (setq indent-tabs-mode t) ; インデントにタブを使います。
 		  (fci-mode 1) ; fill-column-indicator.el の機能を有効にします。
 		  ;; (setq lisp-indent-offset 2)
+		  )
+		)
+	      )
+    (add-hook 'sh-mode-hook
+	      (lambda ()
+		(progn
+		  (setq sh-basic-offset 8)
+		  (setq sh-indentation 8)
 		  )
 		)
 	      )
