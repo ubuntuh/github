@@ -62,3 +62,58 @@
 - relational database では、属性の側に主体があると見ることができる。
 - Wikipedia - Object-relational impedance mismatch というページがある。RDB は集合論であって宣言的であり、OOP はグラフ理論（木構造）であって命令的であるらしい。
 - 実体関連モデル (entity-relationship model, ER model) というものがある。
+- relational database は、ほとんど万能なのだろうか？
+- （一般的な）operating system の file system は、なぜ（一般的な） relational database management system によって実装されていないのか？　そうすることは可能なのか？
+- inode というものがある。inode number というものがある。
+- 同じ内容のファイルが 2 つあることがある。集合論的には、これは 1 つだと思った方が簡単だろう。
+- あるテーブルにある要素らがあるということは、ある要素らがないことを同時に表している。
+- あるテーブルは、0 以上の整数だとか、0 以上の実数だとかを表すこともできると仮に考えた方が、集合論に適いそうである。内包的表現による無限の表現。
+- inode は複数のリンクを持てる。それはそれとして、絶対パスとファイルが 1 対 1 に対応すると考えよう。基本的には、絶対パスを与えてファイル内容を求めるのであって、ファイル内容を与えて絶対パスを求めることはしない。テーブルには、絶対パスの列とファイル内容の列があると考えられる。絶対パスについて UNIQUE 制約を与える。
+- 集合として考えると、UNIQUE 制約があるのは問題ないと思われる一方で PRIMARY KEY (PK) 制約というものがあるのは不思議な気がする。
+- FOREIGN KEY (FK) 制約というものがある。他のテーブルの識別子を名指しする。重要な機能である。これによってテーブル同士が接続される。
+- a b
+- c d
+- というテーブルは、（a かつ b）または（c かつ d）という意味である。(a and b) or (c and d)。
+- C 言語などを想定して、変数を RDB に格納するなら、どのようになるのだろうか？
+- グローバル変数しか存在しないと考えよう。すると深さのない key-value pair で良い気がする。ある範囲の整数でしか変数名を与えられないとしよう。
+- variable name (PK) | variable value
+- 1 | value1
+- 2 | value2
+- 型の情報も与えてみよう。
+- variable name (PK) | variable type id (FK) | variable value
+- 1 | 11 | value1
+- 2 | 12 | value2
+- RDB でどのようにして構造を表すのか？　グラフを書こう。
+- src (PK) | dst (PK)
+- 1 | 1
+- 1 | 2
+- 2 | 3
+- 2 | 4
+- リンクらを表すテーブル（とノードらを表すテーブル）があればグラフが表せる。
+- テーブルは動的に量産したり破棄したりしてよいものなのだろうか？　その必要はないだろう。
+- 木構造はどのように表せるだろうか？　木構造では、深さが 1 異なるノード同士しかリンクを持てず、親は最大 1 個である。
+- 簡単なログデータはどのように RDB で表されるのだろうか？　id は付けるべきだろうか？
+- time | information
+- 2001-02-03 04:05 | Data changed.
+- ログはコマンドと同じだろう。
+- time | command
+- 2001-02-03 04:05 | Load a and b and store its sum to a.
+- 関数をデータとして格納できるだろうか？
+- function name | function implementation
+- int main(void) | { return 0; }
+- あるいは、
+- symbol | expression
+- sum | add arguments
+- あるいは、
+- src func | args | dst func | args
+- sum | x or y | add | x or y
+- あるいは、
+- src func | args | dst funcs | argss ？
+- f(1) とは、f(x) の x と 1 とをリンクさせた構造だと考えられる。その構造を評価すると出力が得られる。
+- lambda calculus on relational databases
+- message passing and lambda calculus
+- actor model, dataflow programming
+- RDB は再帰的だろうか？
+- table には色々制約が設定されるようであるが、それは table の外で記述されるようである。よって単純には再帰的ではないだろう。
+- RDB のある状態は、ある SQL で表せる。よってその SQL を RDB に格納すれば、RDB は RDB を格納できる。その意味で再帰的である。
+- しかし、データベースを SQL に変換するということは行われない？ようである。
