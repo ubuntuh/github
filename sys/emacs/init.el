@@ -1,6 +1,6 @@
-;; Add (load "~/github/sys/emacs/init.el") in ~/.emacs.d/init.el
+;; Add (load (concat (getenv "GIT") "/sys/emacs/init.el")) to ~/.emacs.d/init.el
 (setq inhibit-startup-screen t) ; スタート画面を表示しません。
-(add-to-list 'load-path "~/github/sys/emacs/site-lisp") ; ロードパスにパスを追加します。
+(add-to-list 'load-path (concat (getenv "GIT") "/sys/emacs/site-lisp")) ; ロードパスにパスを追加します。
 (autoload 'helloworld "helloworld" nil t) ; ロードパスの追加が機能していることを確認するためにサンプルプログラムを読み込みます。正しく読み込めていれば、Alt+X helloworld とすると「hello, world」と出力されます。
 (require 'saveplace)
 (setq-default save-place t) ; ポイントの位置を記憶して復元します。記憶するポイント位置のデータはデフォルトでは ~/.emacs.d/places というファイルに記録されるようです。
@@ -41,6 +41,7 @@
 (setq-default indent-tabs-mode t)
 
 (require 'fill-column-indicator) ; 80 文字の位置を表示します。
+(setq fci-rule-column 80) ; デフォルトの表示位置は必ずしも 80 文字ではないので 80 文字にします。
 (setq fci-handle-truncate-lines nil) ; fill-column-indicator.el が、truncate-lines を t にすることをやめさせます。
 (setq fci-handle-line-move-visual nil) ; fill-column-indicator.el が、line-move-visual を nil にすることをやめさせます。
 
@@ -61,7 +62,7 @@
     (tool-bar-mode 0) ; ツールバーを非表示にします。
     (scroll-bar-mode -1) ; なにやらスクロールバーが正常に描画されないのでいっそ消します。
     (setq x-select-enable-clipboard t)
-    (load-file "~/github/sys/emacs/site-lisp/manoj-dark2-theme.el")
+    (load-file (concat (getenv "GIT") "/sys/emacs/site-lisp/manoj-dark2-theme.el"))
     (add-to-list 'default-frame-alist '(width . 69)) ; ウィンドウの幅を設定します。
     (add-to-list 'default-frame-alist '(height . 40))
     ;; (set-frame-size (selected-frame) 69 40))

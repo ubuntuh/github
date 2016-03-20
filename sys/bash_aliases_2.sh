@@ -1,11 +1,5 @@
 #!/bin/bash
-# 例えば ~/.bash_aliases において次の 2 行を書いてこのファイルを使う。
-# export GIT=/media/tmp/NTFS/github
-# . $GIT/sys/bash_aliases.sh
-alias ls='ls --color=never'
-alias ll='ls -alF --color=never'
-alias la='ls -A --color=never'
-alias l='ls -CF --color=never'
+# ~/.bash_aliases などから「. ~/github/sys/bash_aliases.sh」などとして呼び出すことができる。
 alias cp="cp --interactive --verbose"
 alias mv="mv --interactive --verbose"
 alias rm="rm --interactive --verbose"
@@ -24,8 +18,8 @@ export HISTSIZE=
 export HISTTIMEFORMAT='(%F %a %T) '
 # less コマンドのオプションを設定する。
 export LESS='-M +Gg'
-export MANPATH=$GIT/sys/man:$MANPATH
-export INFOPATH=$GIT/sys/info:$INFOPATH
+export MANPATH=~/github/sys/man:$MANPATH
+export INFOPATH=~/github/sys/info:$INFOPATH
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
 PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
 PS2='\[\e[92;1m\]>\[\e[0m\] '
@@ -38,37 +32,38 @@ echo -e "\e]0;" $(date +"%a %H:%M:%S") "\a"
      doc=~/Documents
       dl=~/Downloads
       pr=~/Programming
- contest=$GIT/contest
-    aizu=$GIT/contest/aizu
- atcoder=$GIT/contest/atcoder
-      md=$GIT/md
-    book=$GIT/md/book
-   oscar=$GIT/md/lib/oscar
- thought=$GIT/md/thought
-     src=$GIT/src
-    bash=$GIT/src/bash
-       c=$GIT/src/c
-     clj=$GIT/src/clojure
-halloway=$GIT/src/clojure/halloway
-     cpp=$GIT/src/cpp
- haskell=$GIT/src/haskell
-  python=$GIT/src/python
-     sys=$GIT/sys
-     tmp=$GIT/tmp
+     git=~/github
+ contest=~/github/contest
+    aizu=~/github/contest/aizu
+ atcoder=~/github/contest/atcoder
+      md=~/github/md
+    book=~/github/md/book
+   oscar=~/github/md/lib/oscar
+ thought=~/github/md/thought
+     src=~/github/src
+    bash=~/github/src/bash
+       c=~/github/src/c
+     clj=~/github/src/clojure
+halloway=~/github/src/clojure/halloway
+     cpp=~/github/src/cpp
+ haskell=~/github/src/haskell
+  python=~/github/src/python
+     sys=~/github/sys
+     tmp=~/github/tmp
 # 特定のファイルのパスをここで定義する。
-   ejdic=$GIT/sys/ejdic-hand-utf8.txt
-   edict=$GIT/sys/edict
+   ejdic=~/github/sys/ejdic-hand-utf8.txt
+   edict=~/github/sys/edict
 html() {
 	if [ $# -eq 0 ]; then
-		ls "$GIT/sys/html"
+		ls "$git/sys/html"
 	else
-		if [ -e "$GIT/sys/html/$1.html" ]; then
-			xdg-open "$GIT/sys/html/$1.html"
-		elif [ -e "$GIT/sys/html/$1/index.html" ]; then
-			xdg-open "$GIT/sys/html/$1/index.html"
+		if [ -e "$git/sys/html/$1.html" ]; then
+			xdg-open "$git/sys/html/$1.html"
+		elif [ -e "$git/sys/html/$1/index.html" ]; then
+			xdg-open "$git/sys/html/$1/index.html"
 		else
-			echo "Not Found: $GIT/sys/html/$1.html"
-			echo "Not Found: $GIT/sys/html/$1/index.html"
+			echo "Not Found: $git/sys/html/$1.html"
+			echo "Not Found: $git/sys/html/$1/index.html"
 		fi
 	fi
 }
