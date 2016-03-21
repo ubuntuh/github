@@ -27,7 +27,8 @@ export LESS='-M +Gg'
 export MANPATH=$GIT/sys/man:$MANPATH
 export INFOPATH=$GIT/sys/info:$INFOPATH
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
-PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
+# PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
+PS1='\[\e[92;1m\]$(echo ${PWD/$GIT/\$GIT})\$\[\e[0m\] '
 PS2='\[\e[92;1m\]>\[\e[0m\] '
 title='TITLE'
 # ターミナルの制御文字を使ってタイトルを変更する。
@@ -41,6 +42,7 @@ echo -e "\e]0;" $(date +"%a %H:%M:%S") "\a"
  contest=$GIT/contest
     aizu=$GIT/contest/aizu
  atcoder=$GIT/contest/atcoder
+    html=$GIT/html
       md=$GIT/md
     book=$GIT/md/book
    oscar=$GIT/md/lib/oscar
