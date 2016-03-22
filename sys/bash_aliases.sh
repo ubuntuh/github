@@ -55,6 +55,7 @@ halloway=$GIT/src/clojure/halloway
      cpp=$GIT/src/cpp
  haskell=$GIT/src/haskell
   python=$GIT/src/python
+   sympy=$GIT/src/python/sympy
      sys=$GIT/sys
      tmp=$GIT/tmp
 # 特定のファイルのパスをここで定義する。
@@ -123,22 +124,28 @@ ej() {
 je() {
 	grep "$*" $edict
 }
-google() {
+ggl() {
 	xdg-open "https://www.google.com/search?q=$*"
 }
-google-en() {
+gglen() {
 	xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=$*"
 }
-google-i() {
+gglja() {
+	xdg-open "https://www.google.co.jp/search?gl=JP&hl=ja&q=$*"
+}
+ggli() {
 	xdg-open "https://www.google.com/search?tbm=isch&q=$*"
 }
-news() {
+nws() {
 	xdg-open "https://news.google.com/?ned=us"
 }
-youtube() {
+nwsja() {
+	xdg-open "https://news.google.com/?ned=jp"
+}
+yt() {
 	xdg-open "https://www.youtube.com/results?search_query=$*"
 }
-wikipedia() {
+wp() {
 	xdg-open "https://en.wikipedia.org/wiki/$*"
 }
 weblio() {
