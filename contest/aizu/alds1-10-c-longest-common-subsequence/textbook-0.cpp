@@ -1,4 +1,5 @@
 // Accepted.
+// 最長共通部分列 (longest common subsequence, LCS) の長さを求める。
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -8,7 +9,7 @@ static const int N = 1000;
 
 int lcs(string X, string Y)
 {
-	int c[N + 1][N + 1];
+	int c[N + 1][N + 1];	// c[i][j] は、X[i] までの X と Y[j] までの Y の LCS の長さである。
 	int m = X.size();
 	int n = Y.size();
 	int maxl = 0;
@@ -27,7 +28,9 @@ int lcs(string X, string Y)
 				c[i][j] = max(c[i - 1][j], c[i][j - 1]);
 			}
 			maxl = max(maxl, c[i][j]);
+			cout << " " << maxl;
 		}
+		cout << endl;
 	}
 	return maxl;
 }

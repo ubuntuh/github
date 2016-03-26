@@ -127,10 +127,10 @@ je() {
 ggl() {
 	xdg-open "https://www.google.com/search?q=$*"
 }
-gglen() {
+ge() {
 	xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=$*"
 }
-gglja() {
+gj() {
 	xdg-open "https://www.google.co.jp/search?gl=JP&hl=ja&q=$*"
 }
 ggli() {
