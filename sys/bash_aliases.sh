@@ -9,7 +9,6 @@ alias l='ls -CF --color=never'
 alias cp="cp --interactive --verbose"
 alias mv="mv --interactive --verbose"
 alias rm="rm --interactive --verbose"
-alias open="xdg-open"
 # 連続して同一のコマンドが実行された場合にコマンド履歴に記録しない、空白で始まるコマンドは記録しない、といった機能を無効にする。
 unset HISTCONTROL
 # コマンド履歴が記録されるファイルは通常 ~/.bash_history だが、変更する。
@@ -25,6 +24,8 @@ export HISTTIMEFORMAT='(%F %a %T) '
 # less コマンドのオプションを設定する。
 export LESS='-M +Gg'
 export MANPATH=$GIT/sys/man:$MANPATH
+# man コマンドを使用した際に、日本語で書かれたページのフォーマットが崩れないようにする。
+export MANROFFOPT="-mja"
 export INFOPATH=$GIT/sys/info:$INFOPATH
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
 # PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
@@ -77,6 +78,14 @@ html() {
 }
 a() {
 	./a.out "$@"
+}
+opn_args=
+opn() {
+	if [ $# -ne 0 ]; then
+		opn_args="$@"
+	fi
+	echo xdg-open $opn_args
+	xdg-open $opn_args
 }
 two_asm_args=
 2asm() {
@@ -151,4 +160,3 @@ wp() {
 weblio() {
 	xdg-open "http://ejje.weblio.jp/content/$*"
 }
-

@@ -15,3 +15,4 @@ It was a dark and stormy night; the rain fell in torrents, except at occasional 
 - Paul Hudak - A Gentle Introduction to Haskell 98
 - 高橋哲、他 - O'Reilly - Binary Hacks
 - Allen B. Downey - Think Complexity 他
+- valgrind, kcachegrind

@@ -125,6 +125,13 @@
 		  )
 		)
 	      )
+    (add-hook 'graphviz-dot-mode
+	      (lambda ()
+		(progn
+		  
+		  )
+		)
+	      )
     (add-hook 'sh-mode-hook
 	      (lambda ()
 		(progn

@@ -1,0 +1,7 @@
+// dot -Tpng example0.dot -o example0.png
+// fdp -Tsvg example0.dot -o example0.svg
+digraph digraph0 {
+	alpha -> beta;
+	alpha -> gamma;
+	beta -> delta;
+}

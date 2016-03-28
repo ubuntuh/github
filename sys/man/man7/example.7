@@ -1,4 +1,4 @@
-./" 「./"」で開始された行はコメントとして処理され、出力されません。
+.\" 「.\"」で開始された行はコメントとして処理され、出力されません。
 .TH EXAMPLE 7 "(last update)" "UbuntuHaskell" "Book 1"
 .nf
 .na
@@ -10,4 +10,52 @@ Unix 系のオペレーティングシステムにおいては、普通、自然
 ユーザが自ら man ページを作ることもできる。例えば、example.7 というファイルを作成してテキストエディタで編集し、nroff という形式に従って文章を書く。そして、man ~/example.7 などとすれば、man ページとしてその nroff 文章を開くことができる。man example などと開きたい場合、例えば bash において export MANPATH=~/man: として、~/man/man7 といったディレクトリに example.7 を配置すればよい。
 .P
 Unix 系オペレーティングシステムにおいて man ページは 1971 年頃から存在し、長い歴史を持っている。
+.P
+（日本語版ではない）英語版の Ubuntu をインストールしてデフォルトの状態で、man コマンドで日本語のファイルを閲覧すると、表示が崩れてしまう。これは、環境変数 MANROFFOPT の値を "-mja" とすれば解決する。
+.SH HTML 形式への変換
+例えば Ubuntu において、sudo apt-get install man2html とすると、man2html コマンドが使えるようになる。man2html example.7 > tmp.html などとすると、HTML ファイルが作成できる。xdg-open tmp.html などとすれば、ウェブブラウザで閲覧できる。URL をフルパスで書けば、man2html は自動的にリンクにしてくれる。
+.SH 文法
+.RS 0
+#include <stdio.h>
+.RS 0
 
+.RS 0
+int main(void)
+.RS 0
+{
+.RS 0
+	puts("hello, world");
+.RS 0
+	return 0;
+.RS 0
+}
+.IP "" 0
+http://gnustep.made-it.com/man-groff.html
+.IP ""
+bbbb
+.IP \[bu] 2
+lawyers
+.IP \[bu]
+guns
+.IP \[bu]
+money
+
+.nr step 1 1
+.IP \n[step] 3
+lawyers
+.IP \n+[step]
+guns
+.IP \n+[step]
+money
+.HP
+abc
+def
+ghi
+.br
+aaaa
+.IP
+aa
+.IP
+bb
+.IP
+cc

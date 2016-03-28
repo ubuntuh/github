@@ -1,0 +1,19 @@
+digraph digraph0 {
+	graph [
+	       rankdir = LR,
+	       // bgcolor = "transparent",
+	       bgcolor = black];
+	node [
+	      color = white,
+	      fontcolor = white];
+	edge [
+	      color = white,
+	      fontcolor = white];
+	t0 [label = "高橋 0"];
+	t1 [label = "高橋 1"];
+	佐藤 -> 鈴木 -> t0 -> t1;
+	money [label = "100 円", shape = box];
+	佐藤 -> money [label = "所有"];
+	鈴木 -> Todo [headlabel = "0..", taillabel = "1"];
+	t0 -> Todo [arrowhead = crow]
+}

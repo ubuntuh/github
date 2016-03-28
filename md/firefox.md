@@ -2,6 +2,10 @@
 
 ### 2016-03-24 Thu
 
+#### about:config
+
+- browser.showQuitWarning = true
+
 #### Extensions
 
 - Adblock Plus
