@@ -1,6 +1,7 @@
 # sympy
 
 - sudo apt-get install sympy
+- https://showa-yojyo.github.io/notebook/python-sympy/index.html
 
 ### 2016-03-24 Thu
 

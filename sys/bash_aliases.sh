@@ -151,6 +151,9 @@ nws() {
 nwsja() {
 	xdg-open "https://news.google.com/?ned=jp"
 }
+pron() {
+	$GIT/sys/python/getWeblioPronunciation.py "$*"
+}
 yt() {
 	xdg-open "https://www.youtube.com/results?search_query=$*"
 }
