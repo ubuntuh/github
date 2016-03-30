@@ -5,6 +5,8 @@
 # Java
 bin/
 # Java
+*.class
+# Java
 .classpath
 # emacs lisp compiled file
 *.elc
