@@ -27,7 +27,11 @@ class Example(QMainWindow):
     def time_draw(self):
         d = datetime.datetime.today()
         daystr = d.strftime("%Y-%m-%d %H:%M:%S")
+        text = self.textbox.text()
+        daystr += " " + text
         self.statusBar().showMessage(daystr)
+        if len(self.textbox.text()) == 0:
+            self.textbox.setText(daystr)
 
 def main():
     app = QApplication(sys.argv)
