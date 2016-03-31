@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 u"与えられた英単語の発音をオンライン辞書である「Weblio」で調べて返すプログラムである。"
-from html.parser import HTMLParser
+from HTMLParser import HTMLParser
 import sys
-import urllib.request
+import urllib2
 
 class Parser(HTMLParser):
     u"""HTML データを与えられて、目的の部分のみを変数 datas に蓄えるオブジェクトである。"""
@@ -33,27 +33,17 @@ class Parser(HTMLParser):
 
 def main():
     argv = sys.argv
-    isVerbose = False
-    if len(argv) >= 2 and argv[1] == "-v":
-        isVerbose = True
-        del argv[1]
     if len(argv) == 1:
         print('Error: No arguments.')
         return
     joined = ' '.join(argv[1:])
+    print("Input = " + joined)
     url = 'http://ejje.weblio.jp/content/' + joined
-    response = urllib.request.urlopen(url)
-    encoding = response.headers.get_param('charset')
+    response = urllib2.urlopen(url)
+    encoding = response.headers.getparam('charset')
     html = response.read()
     response.close()
     decoded = html.decode(encoding)
-    if (isVerbose):
-        if (decoded[-1] == "\n"):
-            print(decoded, end="")
-        else:
-            print(decoded)
-        print("HTML len = " + str(len(decoded)))
-        print("HTML numLines = " + str(decoded.count("\n")))
     parser = Parser()
     parser.feed(decoded)
     parser.close()

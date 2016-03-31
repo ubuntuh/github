@@ -133,7 +133,7 @@ ej() {
 je() {
 	grep "$*" $edict
 }
-ggl() {
+g() {
 	xdg-open "https://www.google.com/search?q=$*"
 }
 ge() {
@@ -142,23 +142,35 @@ ge() {
 gj() {
 	xdg-open "https://www.google.co.jp/search?gl=JP&hl=ja&q=$*"
 }
-ggli() {
+gi() {
 	xdg-open "https://www.google.com/search?tbm=isch&q=$*"
 }
 nws() {
-	xdg-open "https://news.google.com/?ned=us"
+	if [ $# -eq 0 ]; then
+		xdg-open "https://news.google.com/?ned=us"
+	else
+		xdg-open "https://news.google.com/?ned=us&q=$*"
+	fi
 }
-nwsja() {
-	xdg-open "https://news.google.com/?ned=jp"
+nwsj() {
+	if [ $# -eq 0 ]; then
+		xdg-open "https://news.google.com/?ned=jp"
+	else
+		xdg-open "https://news.google.com/?ned=jp&q=$*"
+	fi
+	
 }
 pron() {
-	$GIT/sys/python/getWeblioPronunciation.py "$*"
+	$GIT/sys/python/getWeblioPronunciation.py "$@"
 }
 yt() {
 	xdg-open "https://www.youtube.com/results?search_query=$*"
 }
 wp() {
 	xdg-open "https://en.wikipedia.org/wiki/$*"
+}
+wpj() {
+	xdg-open "https://ja.wikipedia.org/wiki/$*"
 }
 weblio() {
 	xdg-open "http://ejje.weblio.jp/content/$*"
