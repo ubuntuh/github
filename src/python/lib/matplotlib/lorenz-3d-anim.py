@@ -12,8 +12,8 @@ def lorentz_deriv(xyz, t0, sigma=10, beta=8./3, rho=28.):
     x, y, z = xyz
     return [sigma * (y - x), x * (rho - z) - y, x * y - beta * z]
 np.random.seed(1)
-x0 = -15 + 30 * np.random.random((N_trajectories, 3)) # -15 から 15 までの乱数。N_trajectories*3 個の乱数を得る。
-t = np.linspace(0, 4, 1000) # 0 から 4 までの間で 1000 個の要素を作る。
+x0 = -15 + 30 * np.random.random((N_trajectories, 3)) # -15 から 15 までの乱数。N_trajectories*3 個の乱数を得る。[[-2.489, 6.609, -14.996], [-5.930, -10.597, -12.229], ...]
+t = np.linspace(0, 4, 1000) # 0 から 4 までの間で 1000 個の要素を作る。[0, 0.004, 0.008, ..., 4]。
 x_t = np.asarray([integrate.odeint(lorentz_deriv, x0i, t) for x0i in x0])
 # odeint(func, y0, t, ...)
 # func = callable(y, t0, ...) = computes the derivative of y at t0.

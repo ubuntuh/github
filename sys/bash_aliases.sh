@@ -145,6 +145,18 @@ gj() {
 gi() {
 	xdg-open "https://www.google.com/search?tbm=isch&q=$*"
 }
+mkdir() {
+	if [ $# -ne 1 ]; then
+		command mkdir "$@"
+		return
+	fi
+	if [ -e $1 ]; then
+		command mkdir "$@"
+		return
+	fi
+	command mkdir $1 && cd $1
+	echo mkdir $1 '&&' cd $1
+}
 nws() {
 	if [ $# -eq 0 ]; then
 		xdg-open "https://news.google.com/?ned=us"
