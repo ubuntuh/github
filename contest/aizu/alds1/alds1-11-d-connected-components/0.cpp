@@ -1,4 +1,4 @@
-// Wrong Answer.
+// Accepted.
 #include <cstdio>
 
 int numNodes;	// [2, 10**5]
@@ -59,9 +59,15 @@ int main(void)
 	for (int i = 0; i < numQuestions; i++) {
 		int s, t;
 		scanf("%d%d", &s, &t);
-		int sGroup = getRootGroup(groupFromNode[s]);
-		int tGroup = getRootGroup(groupFromNode[t]);
-		if (sGroup == tGroup)
+		int sGroup = groupFromNode[s];
+		int tGroup = groupFromNode[t];
+		if (sGroup == 0 || tGroup == 0) {
+			puts("no");
+			continue;
+		}
+		int sRoot = getRootGroup(sGroup);
+		int tRoot = getRootGroup(tGroup);
+		if (sRoot == tRoot)
 			puts("yes");
 		else
 			puts("no");
