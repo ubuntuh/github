@@ -9,6 +9,7 @@ alias l='ls -CF --color=never'
 alias cp="cp --interactive --verbose"
 alias mv="mv --interactive --verbose"
 alias rm="rm --interactive --verbose"
+alias py="ipython3 qtconsole --profile tmp"
 # 連続して同一のコマンドが実行された場合にコマンド履歴に記録しない、空白で始まるコマンドは記録しない、といった機能を無効にする。
 unset HISTCONTROL
 # コマンド履歴が記録されるファイルは通常 ~/.bash_history だが、変更する。

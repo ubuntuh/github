@@ -53,6 +53,13 @@ pprint(solve(expr))
 print("# 微分方程式 y'' - y = e ** t を解く。")
 expr = Eq(y(t).diff(t, t) - y(t), exp(t))
 pprint(expr)
+
+print(expr)
+latex(expr)
+print(latex(expr))
+from IPython.display import display
+display(expr)
+
 pprint(dsolve(expr))
 print('# 行列から固有値を得る。')
 expr = Matrix([[1, 2], [2, 2]])
