@@ -11,3 +11,10 @@
 - Nobumitsu Nakauchi - じっくり学ぶ曲線と曲面
 - Harold Abelson - Structure and Interpretation of Computer Programs
 
+#### -
+
+- System Settings - Keyboard - Shortcuts - Custon Shortcuts
+- Ctrl+Alt+Up = Rotate screen normal (xrandr -o normal)
+- Ctrl+Alt+Down = Rotate screen inverted (xrandr -o inverted)
+- Ctrl+Alt+Left = Rotate screen left (xrandr -o left)
+- Ctrl+Alt+Right = Rotate screen right (xrandr -o right)
