@@ -25,6 +25,12 @@ def set_config(get_config):
     c.IPythonWidget.width = 100
     c.InteractiveShellApp.exec_lines = [
         '%matplotlib inline',
+        'from importlib import reload',
+        'import numpy as np',
+        'import scipy as sp',
+        'import matplotlib.pyplot as plt',
+        'import networkx as nx',
+        'from IPython.display import display',
         'from sympy.abc import *', # sympy.abc は早々に import しなければならない。でなければ pi など多くの名前を覆ってしまうからである。
         'from sympy import *',
         'from sympy.plotting import *',
