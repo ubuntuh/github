@@ -28,6 +28,7 @@ def set_config(get_config):
     c = get_config()
     c.IPythonQtConsoleApp.confirm_exit = False
     c.IPythonWidget.banner = ''
+    c.IPythonWidget.editor = 'gedit'
     c.IPythonWidget.height = 100
     c.IPythonWidget.width = 100
     c.InteractiveShellApp.exec_lines = [
