@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
+ipython3 profile create example
+
 ~/.ipython/profile_example/ipython_qtconsole_config.py
 
 上のようなファイルに下のような記述を追加してこのスクリプトを用いることができる。
