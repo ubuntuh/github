@@ -28,6 +28,7 @@ export MANPATH=$GIT/sys/man:$MANPATH
 # man コマンドを使用した際に、日本語で書かれたページのフォーマットが崩れないようにする。
 export MANROFFOPT="-mja"
 export INFOPATH=$GIT/sys/info:$INFOPATH
+export PYTHONPATH="$GIT/sys/python:$PYTHONPATH"
 # http://misc.flogisoft.com/bash/tip_colors_and_formatting
 # PS1='\[\e[92;1m\]\w\$\[\e[0m\] '
 PS1='\[\e[92;1m\]$(echo ${PWD/$GIT/\$GIT})\$\[\e[0m\] '
@@ -57,7 +58,8 @@ halloway=$GIT/src/clojure/halloway
      cpp=$GIT/src/cpp
  haskell=$GIT/src/haskell
   python=$GIT/src/python
-   sympy=$GIT/src/python/sympy
+   pylib=$GIT/src/python/lib
+   sympy=$GIT/src/python/lib/sympy
      sys=$GIT/sys
      tmp=$GIT/tmp
 # 特定のファイルのパスをここで定義する。
