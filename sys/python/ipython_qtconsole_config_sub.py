@@ -39,11 +39,11 @@ def set_config(get_config):
         'import matplotlib.pyplot as plt',
         'import networkx as nx',
         'from IPython.display import display',
+        'import sympy as sy',
         'from sympy.abc import *', # sympy.abc は早々に import しなければならない。でなければ pi など多くの名前を覆ってしまうからである。
+        'CCC, OOO, SSS, III, NNN, EEE, QQQ = sy.symbols("C O S I N E Q")', # 名前衝突を避けて定義する。
+        'Alpha, Beta, Gamma, Delta, Epsilon, Zeta, Eta, Theta, Iota, Kappa, Lamda, Mu, Nu, Xi, Omicron, Pi, Rho, Sigma, Tau, Upsilon, Phi, CChi, Psi, Omega = sy.symbols("Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa Lamda Mu Nu Xi Omicron Pi Rho Sigma Tau Upsilon Phi Chi Psi Omega")', # sympy.abc ではギリシャ文字大文字について定義されていないので定義する。lambda と chi については名前衝突を避けて定義する。
         'from sympy import *',
         'from sympy.plotting import *',
-        # 'x, y, z, t = symbols("x y z t")',
-        # 'k, m, n = symbols("k m n", integer=True)',
-        # 'f, g, h = symbols("f g h", cls=Function)',
         'init_printing()',
         ]
