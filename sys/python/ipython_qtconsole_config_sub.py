@@ -31,9 +31,11 @@ def set_config(get_config):
     c.IPythonWidget.editor = 'gedit'
     c.IPythonWidget.height = 100
     c.IPythonWidget.width = 100
+    c.IPythonWidget.buffer_size = 10000 # 過去の表示が保持される行数である。デフォルトは 500 である。
     c.InteractiveShellApp.exec_lines = [
         '%matplotlib inline',
         'from importlib import reload',
+        'import dis',
         'import numpy as np',
         'import scipy as sp',
         'import matplotlib.pyplot as plt',
@@ -44,6 +46,7 @@ def set_config(get_config):
         'CCC, OOO, SSS, III, NNN, EEE, QQQ = sy.symbols("C O S I N E Q")', # 名前衝突を避けて定義する。
         'Alpha, Beta, Gamma, Delta, Epsilon, Zeta, Eta, Theta, Iota, Kappa, Lamda, Mu, Nu, Xi, Omicron, Pi, Rho, Sigma, Tau, Upsilon, Phi, CChi, Psi, Omega = sy.symbols("Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa Lamda Mu Nu Xi Omicron Pi Rho Sigma Tau Upsilon Phi Chi Psi Omega")', # sympy.abc ではギリシャ文字大文字について定義されていないので定義する。lambda と chi については名前衝突を避けて定義する。
         'from sympy import *',
+        'from sympy.combinatorics.permutations import *',
         'from sympy.plotting import *',
         'init_printing()',
         ]
