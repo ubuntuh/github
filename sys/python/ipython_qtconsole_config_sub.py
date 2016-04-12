@@ -49,4 +49,5 @@ def set_config(get_config):
         'from sympy.combinatorics.permutations import *',
         'from sympy.plotting import *',
         'init_printing()',
+        'from ipython_qtconsole_init import *',
         ]

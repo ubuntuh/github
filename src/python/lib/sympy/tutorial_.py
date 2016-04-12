@@ -63,3 +63,5 @@ print('# ベッセル関数 J_v(z) を球ベッセル関数に書き直す。')
 expr = besselj(nu, z)
 display(expr)
 display(expr.rewrite(jn))
+
+plot(x)
