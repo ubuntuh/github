@@ -28,7 +28,7 @@ def set_config(get_config):
     c = get_config()
     c.IPythonQtConsoleApp.confirm_exit = False # 終了操作について確認を求めない。
     c.IPythonWidget.banner = '' # 起動時のメッセージを表示しない。
-    c.IPythonWidget.editor = 'gedit' # デフォルトのテキストエディタを設定する。
+    c.IPythonWidget.editor = 'emacs' # デフォルトのテキストエディタを設定する。
     c.IPythonWidget.height = 100
     c.IPythonWidget.width = 100
     c.IPythonWidget.buffer_size = 10000 # 過去の表示が保持される行数である。デフォルトは 500 である。

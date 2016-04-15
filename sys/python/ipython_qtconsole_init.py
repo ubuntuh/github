@@ -34,6 +34,7 @@ import_('importlib', names=['reload'])
 import_('csv')
 import_('dis')
 import_('json')
+import_('subprocess')
 
 import_('numpy', as_='np')
 import_('scipy', as_='sp')
@@ -41,6 +42,7 @@ import_('matplotlib.pyplot', as_='plt')
 import_('networkx', as_='nx')
 import_('pandas', as_='pd')
 import_('IPython.display', names=['display'])
+import_('IPython.core.magic', star=True)
 
 # from /usr/lib/python3/dist-packages/sympy/__init__.py
 # 以下の 3 つはデフォルトでは、読み込みが遅いとしてインポートされていないが、ここではする。
@@ -91,6 +93,23 @@ def plot_implicit_equal(*args, **kwargs):
     p = plot_implicit(*args, **kwargs)
     p._backend.ax.set_aspect('equal')
     return p._backend.fig
+
+@magics_class
+class Magics0(Magics):
+    @line_magic
+    def gg(self, line):
+        command = 'xdg-open "https://www.google.co.jp/search?q=' + line + '"'
+        subprocess.call(command, shell=True)
+    @line_magic
+    def ge(self, line):
+        command = 'xdg-open "https://www.google.co.jp/search?gl=US&hl=en&q=' + line + '"'
+        subprocess.call(command, shell=True)
+    @line_magic
+    def gj(self, line):
+        command = 'xdg-open "https://www.google.co.jp/search?gl=JP&hl=ja&q=' + line + '"'
+        subprocess.call(command, shell=True)
+ip = get_ipython()
+ip.register_magics(Magics0)
 
 now = time.time()
 print('System configured. (in {0:.3f} s)'.format(now - startTime))
