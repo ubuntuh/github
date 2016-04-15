@@ -34,6 +34,7 @@ import_('importlib', names=['reload'])
 import_('csv')
 import_('dis')
 import_('json')
+import_('os')
 import_('subprocess')
 
 import_('numpy', as_='np')
@@ -96,6 +97,18 @@ def plot_implicit_equal(*args, **kwargs):
 
 @magics_class
 class Magics0(Magics):
+    @line_magic
+    def ej(self, line):
+        command = 'grep --color=always "' + line + '" ' + os.environ['ejdic']
+        process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+        stdout_data, _ = process.communicate()
+        print(stdout_data.decode('utf-8'))
+    @line_magic
+    def je(self, line):
+        command = 'grep --color=always "' + line + '" ' + os.environ['edict']
+        process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+        stdout_data, _ = process.communicate()
+        print(stdout_data.decode('utf-8'))
     @line_magic
     def gg(self, line):
         command = 'xdg-open "https://www.google.co.jp/search?q=' + line + '"'

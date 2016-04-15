@@ -65,8 +65,8 @@ halloway=$GIT/src/clojure/halloway
      sys=$GIT/sys
      tmp=$GIT/tmp
 # 特定のファイルのパスをここで定義する。
-   ejdic=$GIT/sys/ejdic-hand-utf8.txt
-   edict=$GIT/sys/edict
+export ejdic=$GIT/sys/ejdic-hand-utf8.txt
+export edict=$GIT/sys/edict
 html() {
 	if [ $# -eq 0 ]; then
 		ls "$GIT/sys/html"
