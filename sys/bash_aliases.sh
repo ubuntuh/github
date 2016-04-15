@@ -24,6 +24,8 @@ export HISTSIZE=
 export HISTTIMEFORMAT='(%F %a %T) '
 # less コマンドのオプションを設定する。
 export LESS='-M +Gg'
+# export LESS='-R'
+# export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s" # sudo apt-get install source-hilight
 export MANPATH=$GIT/sys/man:$MANPATH
 # man コマンドを使用した際に、日本語で書かれたページのフォーマットが崩れないようにする。
 export MANROFFOPT="-mja"
@@ -125,10 +127,18 @@ d() {
 emacs_args=
 e() {
 	if [ $# -ne 0 ]; then
-	emacs_args="$@"
+		emacs_args="$@"
 	fi
 	echo emacs --no-window-system $emacs_args
 	emacs --no-window-system $emacs_args
+}
+show_args=
+show() {
+	if [ $# -ne 0 ]; then
+		show_args="$@"
+	fi
+	echo "emacs --no-window-system $show_args --eval '(setq buffer-read-only t)'"
+	emacs --no-window-system $show_args --eval '(setq buffer-read-only t)'
 }
 ej() {
 	grep "$*" $ejdic

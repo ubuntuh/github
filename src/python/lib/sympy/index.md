@@ -1,6 +1,8 @@
 # sympy
 
 - sudo apt-get install sympy
+- https://github.com/sympy/sympy/issues
+- https://gitter.im/sympy/sympy/archives/2016/01/01
 - https://showa-yojyo.github.io/notebook/python-sympy/index.html
 
 ### 2016-03-24 Thu

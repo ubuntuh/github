@@ -26,28 +26,14 @@ SymPy で、インタラクティブに数式を入力すると Latex で表示�
 
 def set_config(get_config):
     c = get_config()
-    c.IPythonQtConsoleApp.confirm_exit = False
-    c.IPythonWidget.banner = ''
-    c.IPythonWidget.editor = 'gedit'
+    c.IPythonQtConsoleApp.confirm_exit = False # 終了操作について確認を求めない。
+    c.IPythonWidget.banner = '' # 起動時のメッセージを表示しない。
+    c.IPythonWidget.editor = 'gedit' # デフォルトのテキストエディタを設定する。
     c.IPythonWidget.height = 100
     c.IPythonWidget.width = 100
     c.IPythonWidget.buffer_size = 10000 # 過去の表示が保持される行数である。デフォルトは 500 である。
     c.InteractiveShellApp.exec_lines = [
         '%matplotlib inline',
-        'from importlib import reload',
-        'import dis',
-        'import numpy as np',
-        'import scipy as sp',
-        'import matplotlib.pyplot as plt',
-        'import networkx as nx',
-        'from IPython.display import display',
-        'import sympy as sy',
-        'from sympy.abc import *', # sympy.abc は早々に import しなければならない。でなければ pi など多くの名前を覆ってしまうからである。
-        'CCC, OOO, SSS, III, NNN, EEE, QQQ = sy.symbols("C O S I N E Q")', # 名前衝突を避けて定義する。
-        'Alpha, Beta, Gamma, Delta, Epsilon, Zeta, Eta, Theta, Iota, Kappa, Lamda, Mu, Nu, Xi, Omicron, Pi, Rho, Sigma, Tau, Upsilon, Phi, CChi, Psi, Omega = sy.symbols("Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa Lamda Mu Nu Xi Omicron Pi Rho Sigma Tau Upsilon Phi Chi Psi Omega")', # sympy.abc ではギリシャ文字大文字について定義されていないので定義する。lambda と chi については名前衝突を避けて定義する。
-        'from sympy import *',
-        'from sympy.combinatorics.permutations import *',
-        'from sympy.plotting import *',
-        'init_printing()',
         'from ipython_qtconsole_init import *',
+        'init_printing()',
         ]
