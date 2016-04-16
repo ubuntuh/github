@@ -110,8 +110,9 @@ def plot_implicit_equal(*args, **kwargs):
     p._backend.ax.set_aspect('equal')
     return p._backend.fig
 
+ipy = get_ipython()
 @magics_class
-class Magics0(Magics):
+class UtilityMagics(Magics):
     @line_magic
     def ej(self, line):
         command = 'grep --color=always "' + line + '" ' + os.environ['ejdic']
@@ -136,8 +137,34 @@ class Magics0(Magics):
     def gj(self, line):
         command = 'xdg-open "https://www.google.co.jp/search?gl=JP&hl=ja&q=' + line + '"'
         subprocess.call(command, shell=True)
-ip = get_ipython()
-ip.register_magics(Magics0)
+ipy.register_magics(UtilityMagics)
+del UtilityMagics
+
+@magics_class
+class SymPyMagics(Magics):
+    @line_magic
+    def ef(self, line):
+        """引数がない場合 N(_) と同等です。例えば割り切れない有理数を近似的な小数に変換します。引数 line がある場合、N(line) と同等です。なおこの関数名 ef は SymPy モジュールにおける既存の関数 evalf の意味です。"""
+        if line == '':
+            print('N(_)')
+            return ipy.ev('N(_)')
+        print('N(' + line + ')')
+        return ipy.ev('N(' + line + ')')
+    @line_magic
+    def sim(self, line):
+        """引数がない場合 _.simplify() と同等です。例えば 2**3 を 8 に簡約します。引数 line がある場合、line.simplify() と同等です。なおこの関数名 sim は simplify の意味です。"""
+        if line == '':
+            print('_.simplify()')
+            return ipy.ev('_.simplify()')
+        print(line + '.simplify()')
+        return ipy.ev(line + '.simplify()')
+    @line_magic
+    def ss(self, line):
+        """引数 line について、S(line, evaluate=False) と同等です。"""
+        print('S("' + line + '", evaluate=False)')
+        return ipy.ev('S("' + line + '", evaluate=False)')
+ipy.register_magics(SymPyMagics)
+del SymPyMagics
 
 now = time.time()
 print('System configured. (in {0:.3f} s)'.format(now - startTime))
