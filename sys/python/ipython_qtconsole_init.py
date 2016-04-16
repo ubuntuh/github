@@ -1,9 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+'''
+- IPython、特に現在は IPython Qt Console のための設定ファイルである。
+- IPython については特定のコマンドで、例えば ipython3 profile create example として profile というものが作成できる。
+- また、IPython の起動時に、ipython3 qtconsole --profile example などとすることで、利用する profile を指定できる。
+- この時、設定ファイルとして、~/.ipython/profile_example/ipython_qtconsole_config.py といったファイルが読み込まれる。このファイルに設定を記述するのが、最も基本的な方法である。また、自動的に作成されるこのファイルには、コメントとして、様々な設定の例が説明されている。
+- この、（ipython_qtconsole_config.py といった）設定ファイルでは、get_config という名前の関数が利用できる。
+- ここで、呼び出し側がどのようにしてその名前を与えているのか、方法は知らない。
+- c = get_config() などとし、c.IPythonWidget.banner = 'hello, world' などとすることで設定がカスタマイズできる。
+- ただし、すでに関数 get_config は得られているので、任意に私的なスクリプトを import し、そこにある関数を呼び出して引数に get_config を与えることもできる。（あるいは、c.IPythonQtConsoleApp.extra_config_file を設定することがより正当な方法であるかもしれない。）
+- もし、環境変数 PYTHONPATH にサーチパスが追加されているならば、import で直ちに私的なスクリプトを import できる。（あるいは他の方法も考えられるかもしれない。）
+- c.InteractiveShellApp.exec_lines = ['%matplotlib inline', ...] などとして、IPython が起動した時に毎回自動的に行ってほしい処理を記述できる。
+- またここで、私的な任意のスクリプトを import することで、起動時の初期化ができる。IPython を起動した瞬間からいくらかの名前が使えると便利である。
+- このように、2 段階に設定ファイルを呼び出すことで、設定情報のほとんどを例えば同期された共有空間に設置できる。
+- そして、このファイルはその 2 段階目であることが意図されている。
+'''
 
 import importlib
 def import_(from_, as_=None, names=[], star=False):
-    """与えられた名前のモジュールをインポートする関数である。失敗した場合、エラーを出力する。"""
+    """与えられた名前のモジュールをインポートする関数である。失敗した場合、エラーを出力する。この関数を使うと、普通に import する場合に比べていくらか煩雑になる。IPython の設定ファイルが普通にロードされると、import などで、そのマシンにインストールされていないパッケージがあると、エラーになって読み込みは終了してしまうようであり、なおかつエラーメッセージが出力されないようである。そこで、この関数の目的は、読み込めないモジュールを無視して設定を続行することと、読み込めなかった場合にその旨、出力することである。より良い方法があるかもしれないが、これはとりあえず動作しているようである。"""
     try:
         module = importlib.import_module(from_)
     except ImportError:
