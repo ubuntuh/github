@@ -99,6 +99,38 @@ import_('sympy', as_='sy') # すでに名前空間をインポートしている
 CCC, OOO, SSS, III, NNN, EEE, QQQ = sy.symbols('C O S I N E Q') # 名前衝突を避けて定義する。
 Alpha, Beta, Gamma, Delta, Epsilon, Zeta, Eta, Theta, Iota, Kappa, Lamda, Mu, Nu, Xi, Omicron, Pi, Rho, Sigma, Tau, Upsilon, Phi, CChi, Psi, Omega = sy.symbols('Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa Lamda Mu Nu Xi Omicron Pi Rho Sigma Tau Upsilon Phi Chi Psi Omega') # sympy.abc ではギリシャ文字大文字について定義されていないので定義する。lambda と chi については名前衝突を避けて定義する。
 
+'''
+SymPy での既存の名前との衝突を考える。単に一つの文字をしていそうな名前であって、特別な意味を与えられているものは次の通りである。
+C in sympy/core/core.py
+CC in sympy/polys/domains/complexfield.py
+E in sympy/core/numbers.py
+I in sympy/core/numbers.py
+N in sympy/core/evalf.py
+O in sympy/series/order.py
+Q in sympy/assumptions/ask.py
+QQ in sympy/polys/domains/pythonrationalfield.py
+S in sympy/core/singleton.py
+lambda <- これは Python 言語のキーワードである。新しい意味の名前で覆うことはできない。
+pi in sympy/core/numbers.py
+Lambda in sympy/core/functions.py
+Chi in sympy/functions/special/error_functions.py
+'''
+def init_symbols():
+    """記号を初期化します。"""
+    def add_symbols(symbol_strings):
+        for s in symbol_strings:
+            # http://stackoverflow.com/questions/3648339/in-python-how-can-i-access-the-namespace-of-the-main-module-from-an-imported-mo
+            import __main__
+            __main__.__dict__[s] = Symbol(s)
+    abc = 'a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z'
+    # ABC = 'A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z'
+    # alpha_beta = 'alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lamda, mu, nu, xi, omicron, pi, rho, sigma, tau, upsilon, phi, chi, psi, omega'
+    # Alpha_Beta = 'Alpha, Beta, Gamma, Delta, Epsilon, Zeta, Eta, Theta, Iota, Kappa, Lamda, Mu, Nu, Xi, Omicron, Pi, Rho, Sigma, Tau, Upsilon, Phi, Chi, Psi, Omega'
+    s = abc
+    symbol_strings = s.split(', ')
+    add_symbols(symbol_strings)
+    print('Symbols initialized. (' + abc + ')')
+
 def ploteq(*args, **kwargs):
     """軸のアスペクト比を均等にプロットするための関数である。broken。以下の方法で均等なプロットを見ることはできるが、Plot._backend を生成するためには plot(..., show=False) とはできないようである。なので均等ではないプロットと均等なプロットとが両方表示されてしまう。しかし何にせよ、均等なプロットを見ることはできている。それらが両方表示されるのは好ましいと考えることもできる。"""
     p = plot(*args, **kwargs)
@@ -150,6 +182,9 @@ class SymPyMagics(Magics):
             return ipy.ev('N(_)')
         print('N(' + line + ')')
         return ipy.ev('N(' + line + ')')
+    @line_magic
+    def abcd(self, line):
+        init_symbols()
     @line_magic
     def sim(self, line):
         """引数がない場合 _.simplify() と同等です。例えば 2**3 を 8 に簡約します。引数 line がある場合、line.simplify() と同等です。なおこの関数名 sim は simplify の意味です。"""
