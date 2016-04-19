@@ -175,6 +175,9 @@ del UtilityMagics
 @magics_class
 class SymPyMagics(Magics):
     @line_magic
+    def abcd(self, line):
+        init_symbols()
+    @line_magic
     def ef(self, line):
         """引数がない場合 N(_) と同等です。例えば割り切れない有理数を近似的な小数に変換します。引数 line がある場合、N(line) と同等です。なおこの関数名 ef は SymPy モジュールにおける既存の関数 evalf の意味です。"""
         if line == '':
@@ -183,8 +186,13 @@ class SymPyMagics(Magics):
         print('N(' + line + ')')
         return ipy.ev('N(' + line + ')')
     @line_magic
-    def abcd(self, line):
-        init_symbols()
+    def ri(self, line):
+        if line == '' and hasattr(self, 'ri_line'):
+            print('run -i ' + self.ri_line)
+            return ipy.magic('run -i ' + self.ri_line)
+        self.ri_line = line
+        print('run -i ' + self.ri_line)
+        return ipy.magic('run -i ' + self.ri_line)
     @line_magic
     def sim(self, line):
         """引数がない場合 _.simplify() と同等です。例えば 2**3 を 8 に簡約します。引数 line がある場合、line.simplify() と同等です。なおこの関数名 sim は simplify の意味です。"""
