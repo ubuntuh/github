@@ -39,9 +39,15 @@ public:
 	int findSet(int x) {	// findSet(x) はノード x を含む disjoint set である。
 		// ノード x を含む disjoint set とは、p[x] が x 自身ならば x である (base case)。そうでないならば、ノード p[x] を含む disjoint set である。
 		if (x != p[x]) {
-			p[x] = findSet(p[x]);
+			p[x] = findSet(p[x]);	// 経路圧縮。経路圧縮によって rank の値がおかしくなるが問題ないらしい。
 		}
 		return p[x];
+
+		// もし経路圧縮を行わないならば次のようなコードになるだろう。
+		// while (x != p[x]) {
+		// 	x = p[x];
+		// }
+		// return p[x];
 	}
 };
 int main(void)
