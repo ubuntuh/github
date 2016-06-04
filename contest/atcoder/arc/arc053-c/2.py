@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8
-# Wrong Answer.
+# Accepted.
 num_magics = int(input())
 downs = []
 ups = []
@@ -11,7 +11,7 @@ for _ in range(num_magics):
     else:
         ups.append((up, down))
 downs = sorted(downs, key=lambda x: x[0])
-ups = sorted(ups, key=lambda x: x[0], reverse=True)
+ups = sorted(ups, key=lambda x: x[1], reverse=True)
 max_ = current = 0
 for up, down in downs + ups:
     current += up
