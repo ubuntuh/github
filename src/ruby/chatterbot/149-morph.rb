@@ -11,6 +11,7 @@ module Morph
     stdin, stdout, stderr, wait_thr = *Open3.popen3('chasen -F "%m %P-\t"')
     Thread.fork {
       stdin.print(text)
+      stdin.print("\n") # bug fix?
       stdin.close
     }
     analyzed = 'tmp'
@@ -33,3 +34,9 @@ module Morph
   module_function :init_analyzer, :analyze, :keyword?
 end
 
+if $0 == __FILE__
+  text = '茶筌は、形態素解析ツールのひとつ。奈良先端科学技術大学院大学松本研究室で開発された。'
+  result = Morph::analyze(text)
+  print(result)
+  puts
+end

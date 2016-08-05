@@ -76,8 +76,8 @@ if $0 == __FILE__
   Morph::init_analyzer
 
   markov = Markov.new
-  aaa = File.new('bocchan.txt', "r")
-  while line = aaa.gets do
+  file = File.new('bocchan.txt', "r")
+  while line = file.gets do
     texts = line.chomp.split(/[。?？!！　]+/)
     # puts texts
     texts.each do |text|
@@ -88,18 +88,12 @@ if $0 == __FILE__
   end
   puts
 
-  puts 'created.'
-  aaa = STDIN
   loop do
     print('> ')
-    gets_ = gets
-    if gets_ == nil
-      puts 'gets is nil.'
-    end
-    line = gets_.chomp
+    line = gets.chomp
     break if line.empty?
     parts = Morph::analyze(line)
     keyword, p = parts.find{|w, part| Morph::keyword?(part)}
-    puts(markov. generate(keyword))
+    puts(markov.generate(keyword))
   end
 end
