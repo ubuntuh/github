@@ -29,3 +29,5 @@ bin/
 # Java
 .settings/
 
+/src/netbeans/JavaApplication1/nbproject/private/
+/src/netbeans/JavaApplication1/build/
