@@ -93,8 +93,8 @@
 	      '(lambda ()
 		 (progn
 		   (c-set-style "linux")
-		   (setq indent-tabs-mode t) ; インデントにタブを使います。
-		   (setq c-basic-offset 8)
+		   (setq indent-tabs-mode nil) ; インデントに空白を使います。
+		   (setq c-basic-offset 4)
 		   (global-set-key (kbd "DEL") 'delete-backward-char)
 		   (define-key c-mode-map (kbd "DEL") 'delete-backward-char)
 		   (fci-mode 1)
@@ -105,8 +105,8 @@
 	      '(lambda ()
 		 (progn
 		   (c-set-style "linux")
-		   (setq indent-tabs-mode t) ; インデントにタブを使います。
-		   (setq c-basic-offset 8)
+		   (setq indent-tabs-mode nil) ; インデントに空白を使います。
+		   (setq c-basic-offset 4)
 		   (global-set-key (kbd "DEL") 'delete-backward-char)
 		   (define-key c-mode-map (kbd "DEL") 'delete-backward-char)
 		   (fci-mode 1)
