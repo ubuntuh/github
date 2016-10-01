@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+ </head>
+ <body>
+  <h1>Heading Level 1</h1>
+  <p>See console.</p>
+  <script>
+'use strict';
+var NS = NS || {};
+NS.onload = function() {
+    // MDN - Classes
+    NS.Animal = class Animal {
+        constructor(name) {
+            NS.Animal.num_instances = NS.Animal.num_instances || 0;
+            NS.Animal.num_instances++;
+            this._name = name;
+        }
+        speak() {
+            console.log(this._name + ' makes a noise.');
+        }
+        get name() {
+            console.log('get name');
+            return this._name;
+        }
+        set name(name) {
+            console.log('set name');
+            this._name = name;
+        }
+        static size() {
+            return NS.Animal.num_instances;
+        }
+    };
+    NS.Dog = class extends NS.Animal {
+        speak() {
+            console.log(this._name + ' berks.');
+        }
+    }
+    var animal = new NS.Dog('Mitzie');
+    animal.speak();
+    NS.Lion  = class extends NS.Animal {
+        speak() {
+            super.speak();
+            console.log(this._name + ' roars.');
+        }
+    }
+    var lion = new NS.Lion('Lion');
+    lion.speak();
+    console.log(lion.name);
+    lion.name = 'Cat';
+    console.log(lion.name);
+    console.log('Animal.size = ' + NS.Animal.size());
+};
+window.addEventListener('load', NS.onload);
+  </script>
+ </body>
+</html>
+

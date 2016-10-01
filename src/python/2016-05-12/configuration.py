@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from PyQt4 import QtGui
 
-print('Configurating.')
+print('Configuring.')
 
 import platform
 _is_linux = platform.system() == 'Linux'
@@ -14,15 +14,21 @@ _font_database = QtGui.QFontDatabase()
 _font_families = _font_database.families()
 
 
-def init(object):
-    class_name = type(object).__name__
+def init(object_):
+    class_name = type(object_).__name__
+    if class_name == 'MainWindow':
+        object_.setWindowOpacity(0.8)
     if class_name == 'Editor':
+        if _is_linux:
+            font = object_.font()
+            font.setPointSize(15)
+            object_.setFont(font)
         if _is_windows and 'メイリオ' in _font_families:
             font = QtGui.QFont('メイリオ', 12)
-            object.setFont(font)
+            object_.setFont(font)
     if class_name in ['TabWidget', 'Browser', 'TOC']:
         if _is_windows and 'メイリオ' in _font_families:
             font = QtGui.QFont('メイリオ', 10)
-            object.setFont(font)
+            object_.setFont(font)
 
 print('    Configuration done.')

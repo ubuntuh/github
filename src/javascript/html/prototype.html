@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+ </head>
+ <body>
+  <h1>Heading Level 1</h1>
+  <p>See console.</p>
+  <script>
+'use strict';
+var NS = NS || {};
+NS.onload = function() {
+    // MDN - Introduction to Object-Oriented JavaScript
+    NS.Person = function(firstName) {
+        this.firstName = firstName;
+    };
+    NS.Person.prototype.walk = function() {
+        console.log('I am walking!');
+    };
+    NS.Person.prototype.sayHello = function() {
+        console.log('Hello I\'m' + this.firstName);
+    };
+    
+    NS.Student = function(firstName, subject) {
+        NS.Person.call(this, firstName);
+        this.subject = subject;
+    };
+    NS.Student.prototype = Object.create(NS.Person.prototype)
+    NS.Student.prototype.constructor = NS.Student;
+    NS.Student.prototype.sayHello = function() {
+        console.log('Hello, I\'m ' + this.firstName + '. I\'m studying ' + this.subject + '.');
+    };
+    NS.Student.prototype.sayGoodBye = function() {
+        console.log('Goodbye!');
+    };
+    
+    var student1 = new NS.Student('Janet', 'Applied Physics');
+    student1.sayHello();
+    student1.walk();
+    student1.sayGoodBye();
+    console.log(student1 instanceof NS.Person);
+    console.log(student1 instanceof NS.Student);
+};
+window.addEventListener('load', NS.onload);
+  </script>
+ </body>
+</html>
+

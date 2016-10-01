@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+ </head>
+ <body>
+  <h1>Heading Level 1</h1>
+  <p>The quick brown fox jumps over the lazy dog.</p>
+  <p id="p"></p>
+  <button onclick="NS.button_onclick();">button_0</button>
+  <script>
+'use strict';
+var NS = NS || {};
+NS.onload = function() {
+    NS.p = document.getElementById('p');
+    NS.p.innerHTML = Math.random();
+    NS.button_onclick = function() {
+        NS.p.innerHTML = parseFloat(NS.p.innerHTML) + Math.random();
+    };
+};
+window.addEventListener('load', NS.onload);
+  </script>
+ </body>
+</html>
